@@ -1,9 +1,22 @@
-@import "./global.scss";
-
-:root {
-  font-family: "Teko", sans-serif;
-}
+@import './global.scss';
 
 body {
   margin: 0;
+  color: $raisin-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+button {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: 'Teko', sans-serif;
+  color: $raisin-black;
 }
