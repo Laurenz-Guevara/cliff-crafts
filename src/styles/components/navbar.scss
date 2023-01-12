@@ -1,1 +1,72 @@
 @import '../global.scss';
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  position: static;
+  justify-content: center;
+  padding: 20px 0 0 0;
+
+  .nav-left {
+    margin-right: auto;
+    h1 {
+      font-size: 55px;
+      padding: 9px 10px 0 10px;
+      line-height: 50px;
+      background-color: $maximum-red;
+      color: $white;
+    }
+  }
+
+  .nav-burger {
+    margin: auto 0 auto auto;
+    i {
+      font-size: 60px;
+    }
+  }
+  .nav-search {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+
+    input {
+      border: 1px solid $platinum;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $raisin-black;
+      padding: 5px 0 5px 15px;
+      font-size: 20px;
+      width: 100%;
+      height: 45px;
+    }
+
+    input::-webkit-search-decoration,
+    input::-webkit-search-cancel-button,
+    input::-webkit-search-results-button,
+    input::-webkit-search-results-decoration {
+      -webkit-appearance: none;
+    }
+
+    button {
+      text-align: center;
+      width: 60px;
+      height: 45px;
+      background-color: $white;
+      border: 1px solid $platinum;
+      border-left: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

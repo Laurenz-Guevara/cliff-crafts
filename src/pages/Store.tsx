@@ -5,7 +5,9 @@ export function Store() {
   return (
     <>
       <NavBar />
-      <h1>Store</h1>
+      <div className="wrapper">
+        <h1>Store</h1>
+      </div>
     </>
   );
 }

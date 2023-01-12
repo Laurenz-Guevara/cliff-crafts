@@ -6,11 +6,6 @@ import { PageNotFound } from './pages/PageNotFound';
 function App() {
   return (
     <>
-      {/* <NavBar>
-        <NavItem icon="😁" />
-        <NavItem icon="😁" />
-        <NavItem icon="😁" />
-      </NavBar> */}
       <Routes>
         <Route path="/" element={<Splashpage />} />
         <Route path="/store" element={<Store />} />

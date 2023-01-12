@@ -1,5 +1,17 @@
 @import '../global.scss';
 
+:root {
+  --app-height: 100%;
+}
+
+html,
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  height: var(--app-height);
+}
+
 .splashpage::before {
   content: '';
   background-image: url('../../assets/mountainscape.jpg');
@@ -40,13 +52,11 @@
     background-color: $maximum-red;
     border: none;
     padding: 0;
-    font-size: 12vw;
+    font-size: 10vw;
     font-weight: bold;
     padding: 7px 17px 2px 17px;
-    a {
-      text-decoration: none;
-      color: $white;
-    }
+    text-decoration: none;
+    color: $white;
   }
 }
 
