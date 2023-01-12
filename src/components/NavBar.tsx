@@ -29,7 +29,7 @@ export function NavBar() {
         <div className="nav-right">
           <ul className="navbar-nav">
             <li
-              onMouseEnter={() => setClimbingShoes(!openClimbingShoes)}
+              onMouseEnter={() => setClimbingShoes(true)}
               onMouseLeave={() => setClimbingShoes(!openClimbingShoes)}
               onClick={() => {
                 setClimbingShoes(!openClimbingShoes);
@@ -44,8 +44,8 @@ export function NavBar() {
               {openClimbingShoes && <Meganav />}
             </li>
             <li
-              onMouseEnter={() => setAccessories(!openAccessories)}
-              onMouseLeave={() => setAccessories(!openAccessories)}
+              onMouseEnter={() => setAccessories(true)}
+              onMouseLeave={() => setAccessories(false)}
               onClick={() => {
                 setAccessories(!openAccessories);
                 setClimbingShoes(false);
@@ -59,8 +59,8 @@ export function NavBar() {
               {openAccessories && <Meganav />}
             </li>
             <li
-              onMouseEnter={() => setDeals(!openDeals)}
-              onMouseLeave={() => setDeals(!openDeals)}
+              onMouseEnter={() => setDeals(true)}
+              onMouseLeave={() => setDeals(false)}
               onClick={() => {
                 setAccessories(false);
                 setClimbingShoes(false);
