@@ -9,12 +9,16 @@
 
   .nav-left {
     margin-right: auto;
-    h1 {
+
+    a {
+      display: block;
+      text-decoration: none;
       font-size: 55px;
       padding: 9px 10px 0 10px;
-      line-height: 50px;
+      line-height: 0;
       background-color: $maximum-red;
       color: $white;
+      line-height: 50px;
     }
   }
 
@@ -24,6 +28,7 @@
       font-size: 56px;
     }
   }
+
   .nav-search {
     display: flex;
     width: 100%;
@@ -72,6 +77,9 @@
 }
 
 @media (min-width: $tablet-breakpoint) {
+  .toggled-btn {
+    background-color: #efefef;
+  }
   .navbar {
     .nav-left {
       margin-right: auto;
@@ -90,7 +98,7 @@
 
     .nav-right {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
 
       ul {
         padding-left: 0;
@@ -111,9 +119,55 @@
 
       a {
         text-decoration: none;
-        padding-left: 30px;
+        margin-left: 30px;
         font-size: 30px;
+        padding: 0 13px;
+      }
+    }
+
+    .navbar-secondary-nav {
+      a {
+        font-size: 20px;
+      }
+
+      li a i {
+        font-size: 15px !important;
+        padding-bottom: 5px;
+      }
+    }
+
+    .mega-menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 79px;
+      margin: auto;
+      max-width: 1280px;
+      min-height: 300px;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 20px 0;
+      z-index: 1;
+      cursor: default;
+      background-color: #efefef;
+
+      ol {
+        padding: 0;
       }
     }
   }
+
+  // .navbar-nav li a:hover ~ .nav-mega-menu,
+  // .nav-mega-menu:hover {
+  //   display: block;
+  // }
+
+  // .navbar-nav li a:focus ~ .nav-mega-menu,
+  // .nav-mega-menu:focus {
+  //   display: block;
+  // }
+
+  // .nav-mega-menu:hover ~ .navbar-nav li a {
+  //   background-color: blue !important;
+  // }
 }
