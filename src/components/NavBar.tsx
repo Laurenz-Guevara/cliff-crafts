@@ -8,7 +8,7 @@ export function NavBar() {
   const [openClimbingShoes, setClimbingShoes] = useState(false);
   const [openAccessories, setAccessories] = useState(false);
   const [openDeals, setDeals] = useState(false);
-  const [b, setB] = useState(false);
+  const [openBurger, setOpenBurger] = useState(false);
 
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
@@ -23,8 +23,13 @@ export function NavBar() {
         <div className="nav-left">
           <NavLink to={'/store'}>CLIFFCRAFTS</NavLink>
         </div>
-        <div className="nav-burger">
-          <i className="fas fa-bars burger"></i>{' '}
+        <div
+          className="nav-burger"
+          onClick={() => {
+            setOpenBurger(!openBurger);
+          }}
+        >
+          <i className="fas fa-bars burger"></i> {openBurger && <Meganav />}
         </div>
         <div className="nav-right">
           <ul className="navbar-nav">
