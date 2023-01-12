@@ -21,7 +21,7 @@
   .nav-burger {
     margin: auto 0 auto auto;
     i {
-      font-size: 60px;
+      font-size: 56px;
     }
   }
   .nav-search {
@@ -68,5 +68,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .navbar {
+    .nav-left {
+      margin-right: auto;
+      h1 {
+        font-size: 55px;
+        padding: 9px 10px 0 10px;
+        line-height: 50px;
+        background-color: $maximum-red;
+        color: $white;
+      }
+    }
+
+    .nav-burger {
+      display: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+
+      ul {
+        padding-left: 0;
+      }
+    }
+
+    .navbar-nav {
+      display: flex;
+      margin: 0;
+
+      li {
+        list-style: none;
+      }
+
+      li:not(:last-child) i {
+        font-size: 23px;
+      }
+
+      a {
+        text-decoration: none;
+        padding-left: 30px;
+        font-size: 30px;
+      }
+    }
   }
 }

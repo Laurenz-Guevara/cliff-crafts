@@ -32,7 +32,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh);
+  height: calc(85vh);
 
   .hero {
     padding: 0 20px;
@@ -60,7 +60,7 @@ body {
   }
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: $tablet-breakpoint) {
   .hero-container {
     .hero {
       h1 {

@@ -26,10 +26,24 @@ export function NavBar() {
       <div className="nav-right">
         <ul className="navbar-nav">
           <li>
-            <NavLink to={'#'}>Find A Store</NavLink>
+            <NavLink to={'#'}>
+              Climbing Shoes <i className="fas fa-chevron-down"></i>
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/'}>Cart</NavLink>
+            <NavLink to={'/'}>
+              Accessories <i className="fas fa-chevron-down"></i>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={'/'}>
+              Deals <i className="fas fa-chevron-down"></i>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={'/'}>
+              <i className="fas fa-shopping-basket"></i>{' '}
+            </NavLink>
           </li>
         </ul>
       </div>
