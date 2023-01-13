@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import sanityClient from '../../client';
 import { NavLink } from 'react-router-dom';
 
 import '../styles/components/navbar.scss';
@@ -9,13 +10,34 @@ export function NavBar() {
   const [openAccessories, setAccessories] = useState(false);
   const [openDeals, setDeals] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
-
+  let [loading, setLoading] = useState(false);
+  const [data, setData] = useState(null);
+  const [words, setWords] = useState(null);
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
     console.log(e.target.value);
   };
 
   //Note useState would trigger the API to make another call, possibly try useRef()
+
+  useEffect(() => {
+    setLoading(true);
+    console.log('useEffect - Fire');
+    sanityClient
+      .fetch(
+        `*[_type == "wordlist"]{
+          word,
+          definition,
+          slug,
+          }`
+      )
+      .then((data) => (setData(data), setLoading(false)))
+      .catch(console.error);
+  }, []);
+
+  if (loading) {
+    return <h1>Loading</h1>;
+  }
 
   return (
     <div className="wrapper">
@@ -27,6 +49,9 @@ export function NavBar() {
           className="nav-burger"
           onClick={() => {
             setOpenBurger(!openBurger);
+            {
+              console.log(data);
+            }
           }}
         >
           <i className="fas fa-bars burger"></i> {openBurger && <Meganav />}
