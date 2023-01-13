@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import sanityClient from '../../client';
+import { client } from '../../client';
 import { NavLink } from 'react-router-dom';
 
 import '../styles/components/navbar.scss';
@@ -12,26 +12,29 @@ export function NavBar() {
   const [openBurger, setOpenBurger] = useState(false);
   let [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [words, setWords] = useState(null);
+
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
     console.log(e.target.value);
   };
 
-  //Note useState would trigger the API to make another call, possibly try useRef()
+  //Note useState would trigger the API to make another call, possibly try useRef() - This might be untrue as its before the return
 
   useEffect(() => {
     setLoading(true);
     console.log('useEffect - Fire');
-    sanityClient
+    client
       .fetch(
-        `*[_type == "wordlist"]{
-          word,
-          definition,
-          slug,
+        `*[_type == "product"]{
+          productName,
+          price
           }`
       )
-      .then((data) => (setData(data), setLoading(false)))
+      .then(
+        (data) => (
+          setData(data), setLoading(false), console.log('Called nav useEffect')
+        )
+      )
       .catch(console.error);
   }, []);
 

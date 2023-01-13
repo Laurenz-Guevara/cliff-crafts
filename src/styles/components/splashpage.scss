@@ -1,15 +1,17 @@
 @import '../global.scss';
 
-:root {
-  --app-height: 100%;
-}
+.splashpage {
+  :root {
+    --app-height: 100%;
+  }
 
-html,
-body {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  height: var(--app-height);
+  html,
+  body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    height: var(--app-height);
+  }
 }
 
 .splashpage::before {

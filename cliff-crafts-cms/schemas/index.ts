@@ -1,4 +1,4 @@
 import blockContent from './blockContent'
-import wordlist from './wordlist'
+import product from './product'
 
-export const schemaTypes = [wordlist, blockContent]
+export const schemaTypes = [product, blockContent]
