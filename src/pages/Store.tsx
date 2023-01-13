@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { NavBar } from '../components/NavBar';
 import '../styles/pages/store.scss';
+import '../styles/components/productPreview.scss';
 
 export function Store() {
   const [data, setData] = useState<any[]>();
@@ -14,11 +15,10 @@ export function Store() {
     client
       .fetch(
         `*[_type == "product"]{
+          brand,
           productName,
-          description,
-          specification,
+          image,
           price,
-          image
           }`
       )
       .then(
@@ -37,17 +37,19 @@ export function Store() {
     <>
       <NavBar />
       <div className="wrapper">
-        <div className="product-container">
-          {data &&
-            data.map((item) => (
-              <div key={item.productName} className="card-wrapper">
-                <h1>{item.productName}</h1>
-                <img src={urlFor(item.image && item.image[0]).url()}></img>
-                <p>{item.description}</p>
-                <p>{item.specification}</p>
-                <p>£{item.price}</p>
-              </div>
-            ))}
+        <div className="product-preview">
+          <h1>OUR FEATURED PRODUCTS</h1>
+          <div className="product-preview-container">
+            {data &&
+              data.map((item) => (
+                <div key={item.productName} className="product-preview-wrapper">
+                  <img src={urlFor(item.image && item.image[0]).url()}></img>
+                  <h2>{item.brand}</h2>
+                  <h1>{item.productName}</h1>
+                  <p>£{item.price}</p>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </>
