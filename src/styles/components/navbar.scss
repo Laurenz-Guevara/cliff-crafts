@@ -13,19 +13,19 @@
     a {
       display: block;
       text-decoration: none;
-      font-size: 55px;
+      font-size: 45px;
       padding: 9px 10px 0 10px;
       line-height: 0;
       background-color: $maximum-red;
       color: $white;
-      line-height: 50px;
+      line-height: 40px;
     }
   }
 
   .nav-burger {
     margin: auto 0 auto auto;
     i {
-      font-size: 56px;
+      font-size: 46px;
     }
   }
 
@@ -79,8 +79,9 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: px;
+    top: 69px;
     margin: auto;
+    padding-bottom: 30px;
     max-width: 1280px;
     min-height: 300px;
     width: 90%;
@@ -98,6 +99,23 @@
       list-style-type: none;
       padding: 0;
       width: 100%;
+
+      h1 {
+        padding: 20px 0 0 0;
+        a {
+          font-weight: bold;
+          font-size: 26px;
+          color: $maximum-red;
+        }
+      }
+
+      p {
+        font-size: 22px;
+      }
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 }
@@ -163,22 +181,8 @@
     }
 
     .mega-menu {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 79px;
-      margin: auto;
-      max-width: 1280px;
-      min-height: 300px;
-      width: 90%;
-      box-sizing: border-box;
-      padding: 20px 0;
-      z-index: 1;
-      cursor: default;
-      background-color: #efefef;
-
-      ol {
-        padding: 0;
+      p {
+        display: block;
       }
     }
   }

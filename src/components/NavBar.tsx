@@ -12,7 +12,8 @@ export function NavBar() {
   const [openBurger, setOpenBurger] = useState(false);
   let [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-
+  const [data2, setData2] = useState<any>();
+  const [selected, setSelected] = useState<any>();
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
     console.log(e.target.value);
@@ -30,9 +31,22 @@ export function NavBar() {
           price
           }`
       )
+      .then((data) => (setData(data), console.log('Called nav useEffect')))
+      .catch(console.error);
+
+    client
+      .fetch(
+        `*[_type == "meganav"]{
+          navheader,
+          slug,
+          navelement
+          }`
+      )
       .then(
-        (data) => (
-          setData(data), setLoading(false), console.log('Called nav useEffect')
+        (data2) => (
+          setData2(data2),
+          setLoading(false),
+          console.log('Called nav useEffect')
         )
       )
       .catch(console.error);
@@ -53,58 +67,69 @@ export function NavBar() {
           onClick={() => {
             setOpenBurger(!openBurger);
             {
-              console.log(data);
+              console.log('Open burger');
             }
           }}
         >
-          <i className="fas fa-bars burger"></i> {openBurger && <Meganav />}
+          <i className="fas fa-bars burger"></i>{' '}
+          {openBurger && <Meganav data2={data2} selected={''} />}
         </div>
         <div className="nav-right">
           <ul className="navbar-nav">
             <li
-              onMouseEnter={() => setClimbingShoes(true)}
+              onMouseEnter={() => {
+                setClimbingShoes(true), setSelected('climbing-shoes');
+              }}
               onMouseLeave={() => setClimbingShoes(!openClimbingShoes)}
               onClick={() => {
                 setClimbingShoes(!openClimbingShoes);
                 setAccessories(false);
                 setDeals(false);
+                setSelected('climbing-shoes');
               }}
             >
               <a href="#" className={openClimbingShoes ? 'toggled-btn' : ''}>
                 Climbing Shoes <i className="fas fa-chevron-down"></i>
               </a>
-
-              {openClimbingShoes && <Meganav />}
+              {openClimbingShoes && (
+                <Meganav data2={data2} selected={selected} />
+              )}
             </li>
             <li
-              onMouseEnter={() => setAccessories(true)}
+              onMouseEnter={() => {
+                setAccessories(true), setSelected('accessories');
+              }}
               onMouseLeave={() => setAccessories(false)}
               onClick={() => {
                 setAccessories(!openAccessories);
                 setClimbingShoes(false);
                 setDeals(false);
+                setSelected('accessories');
               }}
             >
               <a href="#" className={openAccessories ? 'toggled-btn' : ''}>
                 Accessories <i className="fas fa-chevron-down"></i>
               </a>
 
-              {openAccessories && <Meganav />}
+              {openAccessories && <Meganav data2={data2} selected={selected} />}
             </li>
             <li
-              onMouseEnter={() => setDeals(true)}
+              onMouseEnter={() => {
+                setDeals(true), setSelected('deals');
+              }}
               onMouseLeave={() => setDeals(false)}
               onClick={() => {
                 setAccessories(false);
                 setClimbingShoes(false);
                 setDeals(!openDeals);
+                setSelected('deals');
               }}
             >
               <a href="#" className={openDeals ? 'toggled-btn' : ''}>
                 Deals <i className="fas fa-chevron-down"></i>
               </a>
 
-              {openDeals && <Meganav />}
+              {openDeals && <Meganav data2={data2} selected={selected} />}
             </li>
             <li>
               <NavLink to={'/checkout'}>
@@ -130,42 +155,38 @@ export function NavBar() {
   );
 }
 
-function Meganav(props: any) {
+function Meganav(props: { data2: any[]; selected: string }) {
   return (
     <div className="mega-menu">
       <ol>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
-      </ol>
-      <ol>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
-        <li>
-          <a href="#" className="list-link">
-            Link
-          </a>
-        </li>
+        {props &&
+          props.data2
+            .filter((x) => x.slug.current.includes(props.selected))
+            .map((item) => (
+              <li key={item.navheader}>
+                <h1>
+                  <NavLink
+                    to={'/collection/' + item.slug.current}
+                    className="list-link"
+                  >
+                    {item.navheader}
+                  </NavLink>
+                </h1>
+                {item.navelement.map((x: any) => (
+                  <p key={x}>
+                    <NavLink
+                      to={
+                        '/collection/' +
+                        x.replace(/[^A-Z0-9]/gi, '').toLowerCase()
+                      }
+                      className="list-link"
+                    >
+                      {x}
+                    </NavLink>
+                  </p>
+                ))}
+              </li>
+            ))}
       </ol>
     </div>
   );
