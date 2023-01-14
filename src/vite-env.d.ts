@@ -8,6 +8,8 @@ interface Slug {
 type Product = {
   brand: string;
   productName: string;
+  description: string;
+  specification: string;
   price: number;
   image: any;
   slug: Slug;

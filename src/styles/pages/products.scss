@@ -2,8 +2,20 @@
 
 .product-container {
   .product-preview-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-weight: bold;
+    }
+
+    #price {
+      font-size: 50px;
+    }
   }
 }

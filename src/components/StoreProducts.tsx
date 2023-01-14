@@ -11,7 +11,11 @@ export function StoreProducts(props: { data: Product[] }) {
               <img src={urlFor(item.image && item.image[0]).url()}></img>
               <h2>{item.brand}</h2>
               <h1>{item.productName}</h1>
-              <p>£{item.price}</p>
+              {item.price % 1 === 0 ? (
+                <p id="price">£{item.price}.00</p>
+              ) : (
+                <p id="price">£{item.price}</p>
+              )}
             </NavLink>
           </div>
         ))}
