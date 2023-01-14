@@ -81,9 +81,8 @@
     right: 0;
     top: 69px;
     margin: auto;
-    padding-bottom: 30px;
+    padding: 0 30px 0 25px;
     max-width: 1280px;
-    min-height: 300px;
     width: 90%;
     box-sizing: border-box;
     z-index: 1;
@@ -92,7 +91,7 @@
 
     display: flex;
     justify-content: flex-start;
-    text-align: center;
+    text-align: left;
     flex-wrap: wrap;
 
     ol {
@@ -181,8 +180,15 @@
     }
 
     .mega-menu {
-      p {
-        display: block;
+      padding: 10px 0 25px;
+      ol {
+        column-count: auto;
+        column-width: 260px;
+        white-space: nowrap;
+      }
+
+      li {
+        break-inside: avoid-column;
       }
     }
   }

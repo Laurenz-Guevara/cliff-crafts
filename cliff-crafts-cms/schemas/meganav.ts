@@ -1,3 +1,5 @@
+import category from '../custom/category'
+
 export default {
   name: 'meganav',
   title: 'Add elements to the Mega Nav',
@@ -13,6 +15,15 @@ export default {
       title: 'Navigation element',
       type: 'array',
       of: [{type: 'string'}],
+    },
+    {
+      title: 'Category',
+      description: 'What kind of product is it?',
+      name: 'category',
+      type: 'string',
+      options: {
+        list: [...category],
+      },
     },
     {
       name: 'slug',

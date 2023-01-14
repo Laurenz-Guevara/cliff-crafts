@@ -1,0 +1,9 @@
+@import '../global.scss';
+
+.product-container {
+  .product-preview-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

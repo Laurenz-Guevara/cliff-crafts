@@ -38,14 +38,12 @@ export default {
         list: [...category],
       },
     },
+
     {
       name: 'brand',
       title: 'Brand Name',
       description: 'The brand name of the product.',
       type: 'string',
-      options: {
-        list: [...brands],
-      },
     },
 
     {

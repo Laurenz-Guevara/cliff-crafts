@@ -1,15 +1,22 @@
 /// <reference types="vite/client" />
 
+interface Slug {
+  _type: 'slug';
+  current: string;
+}
+
 type Product = {
   brand: string;
   productName: string;
   price: number;
   image: any;
+  slug: Slug;
 };
 
 type Collection = {
-  data2: Array;
+  data: Array;
   navheader: string;
-  navelement: string;
-  slug: string;
+  navelement: Array;
+  category: string;
+  slug: Slug;
 };
