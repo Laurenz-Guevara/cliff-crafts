@@ -4,7 +4,7 @@
   .product-preview-wrapper {
     display: block;
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 0;
 
     h1 {
       font-size: 40px;
@@ -14,8 +14,25 @@
       font-weight: bold;
     }
 
+    p {
+      font-size: 22px;
+      padding: 20px 0 0 0;
+      font-weight: 300;
+    }
+
     #price {
+      padding-top: 0;
       font-size: 50px;
+    }
+
+    .cta-button {
+      background-color: #da291d;
+      border: none;
+      padding: 0;
+      font-size: 40px;
+      padding: 7px 27px 2px 27px;
+      text-decoration: none;
+      color: #fff;
     }
   }
 }

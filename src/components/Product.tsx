@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import '../styles/pages/store.scss';
 import '../styles/components/productPreview.scss';
 
@@ -42,6 +42,11 @@ export function Product() {
             ) : (
               <p id="price">£{data.price}</p>
             )}
+
+            <NavLink to="/store" className="cta-button">
+              Buy Now
+            </NavLink>
+
             <p>{data.description}</p>
             <p>{data.specification}</p>
           </div>
