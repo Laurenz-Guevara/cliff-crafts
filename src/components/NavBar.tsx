@@ -11,7 +11,6 @@ export function NavBar() {
   const [openAccessories, setAccessories] = useState(false);
   const [openDeals, setDeals] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
-  let [loading, setLoading] = useState(false);
   const [data, setData] = useState<Collection[]>();
   let [selected, setSelected] = useState<any>();
   const handleUserInput = (e: any) => {
@@ -22,7 +21,6 @@ export function NavBar() {
   //Note useState would trigger the API to make another call, possibly try useRef() - This might be untrue as its before the return
 
   useEffect(() => {
-    setLoading(true);
     client
       .fetch(
         `*[_type == "meganav"]{
@@ -32,17 +30,9 @@ export function NavBar() {
           navelement
           }`
       )
-      .then(
-        (data) => (
-          setData(data), setLoading(false), console.log('Called nav useEffect')
-        )
-      )
+      .then((data) => (setData(data), console.log('Called nav useEffect')))
       .catch(console.error);
   }, []);
-
-  if (loading) {
-    return <h1>Loading</h1>;
-  }
 
   return (
     <div className="wrapper">

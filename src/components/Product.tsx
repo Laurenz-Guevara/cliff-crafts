@@ -25,31 +25,29 @@ export function Product() {
       .catch(console.error);
   }, [slug]);
 
-  if (!data) {
-    return <h1>Loading</h1>;
-  }
-
   return (
     <>
       <div className="wrapper">
         <div className="product-container">
-          <div className="product-preview-wrapper">
-            <h2>{data.brand}</h2>
-            <h1>{data.productName}</h1>
-            <img src={urlFor(data.image && data.image[0]).url()}></img>
-            {data.price % 1 === 0 ? (
-              <p id="price">£{data.price}.00</p>
-            ) : (
-              <p id="price">£{data.price}</p>
-            )}
+          {data && (
+            <div className="product-preview-wrapper">
+              <h2>{data.brand}</h2>
+              <h1>{data.productName}</h1>
+              <img src={urlFor(data.image && data.image[0]).url()}></img>
+              {data.price % 1 === 0 ? (
+                <p id="price">£{data.price}.00</p>
+              ) : (
+                <p id="price">£{data.price}</p>
+              )}
 
-            <NavLink to="/store" className="cta-button">
-              Buy Now
-            </NavLink>
+              <NavLink to="/store" className="cta-button">
+                Buy Now
+              </NavLink>
 
-            <p>{data.description}</p>
-            <p>{data.specification}</p>
-          </div>
+              <p>{data.description}</p>
+              <p>{data.specification}</p>
+            </div>
+          )}
         </div>
       </div>
     </>

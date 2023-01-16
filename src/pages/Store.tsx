@@ -8,12 +8,7 @@ import '../styles/components/productPreview.scss';
 
 export function Store() {
   const [data, setData] = useState<Product[]>();
-
-  let [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    setLoading(true);
-
     client
       .fetch(
         `*[_type == "product"]{
@@ -24,28 +19,16 @@ export function Store() {
           slug,
           }`
       )
-      .then(
-        (data) => (
-          setData(data), setLoading(false), console.log('Called useEffect')
-        )
-      )
+      .then((data) => (setData(data), console.log('Called useEffect')))
       .catch(console.error);
   }, []);
-  if (loading && data == undefined) {
-    console.log('DATA UNDEFINED', data);
-    return <h1>Loading</h1>;
-  }
-
-  if (data !== undefined) {
-    console.log('NOT UNDEFINED', data);
-  }
 
   return (
     <>
       <NavBar />
       <div className="wrapper">
         <div className="product-preview">
-          {data ? <StoreProducts data={data} /> : <h1>Loading store</h1>}
+          {data && <StoreProducts data={data} />}
         </div>
       </div>
     </>

@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 export function StoreProducts(props: { data: Product[] }) {
   return (
     <div className="product-preview-container">
-      {props.data ? (
+      {props.data &&
         props.data.map((item) => (
           <div key={item.productName} className="product-preview-wrapper">
             <NavLink to={'/products/' + item.slug.current}>
@@ -21,10 +21,7 @@ export function StoreProducts(props: { data: Product[] }) {
               )}
             </NavLink>
           </div>
-        ))
-      ) : (
-        <h1>Loading Image</h1>
-      )}
+        ))}
     </div>
   );
 }
