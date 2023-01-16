@@ -26,13 +26,13 @@
     }
 
     .cta-button {
-      background-color: #da291d;
+      background-color: $maximum-red;
       border: none;
       padding: 0;
       font-size: 40px;
       padding: 7px 27px 2px 27px;
       text-decoration: none;
-      color: #fff;
+      color: $white;
     }
   }
 }

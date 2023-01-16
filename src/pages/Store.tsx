@@ -31,9 +31,13 @@ export function Store() {
       )
       .catch(console.error);
   }, []);
-
-  if (loading) {
+  if (loading && data == undefined) {
+    console.log('DATA UNDEFINED', data);
     return <h1>Loading</h1>;
+  }
+
+  if (data !== undefined) {
+    console.log('NOT UNDEFINED', data);
   }
 
   return (
@@ -41,8 +45,7 @@ export function Store() {
       <NavBar />
       <div className="wrapper">
         <div className="product-preview">
-          <h1>OUR FEATURED PRODUCTS</h1>
-          <StoreProducts data={data!} />
+          {data ? <StoreProducts data={data} /> : <h1>Loading store</h1>}
         </div>
       </div>
     </>

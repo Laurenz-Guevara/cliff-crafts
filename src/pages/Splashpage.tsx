@@ -8,6 +8,7 @@ export function Splashpage() {
   };
   window.addEventListener('resize', appHeight);
   appHeight();
+
   return (
     <>
       <div className="splashpage">
