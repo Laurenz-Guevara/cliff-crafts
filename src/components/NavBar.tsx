@@ -15,7 +15,6 @@ export function NavBar() {
   let [selected, setSelected] = useState<any>();
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
-    console.log(e.target.value);
   };
 
   //Note useState would trigger the API to make another call, possibly try useRef() - This might be untrue as its before the return
@@ -30,7 +29,7 @@ export function NavBar() {
           navelement
           }`
       )
-      .then((data) => (setData(data), console.log('Called nav useEffect')))
+      .then((data) => setData(data))
       .catch(console.error);
   }, []);
 
@@ -44,9 +43,6 @@ export function NavBar() {
           className="nav-burger"
           onClick={() => {
             setOpenBurger(!openBurger);
-            {
-              console.log('Open burger');
-            }
           }}
         >
           <i className="fas fa-bars burger"></i>{' '}
@@ -67,7 +63,7 @@ export function NavBar() {
               }}
             >
               <a href="#" className={openClimbingShoes ? 'toggled-btn' : ''}>
-                Climbing Shoes <i className="fas fa-chevron-down"></i>
+                Climbing <i className="fas fa-chevron-down"></i>
               </a>
               {openClimbingShoes && (
                 <Meganav data={data!} selected={selected} />

@@ -1,5 +1,5 @@
 import category from '../custom/category'
-import brands from '../custom/brands'
+import subcategory from '../custom/subcategory'
 import gender from '../custom/gender'
 
 export default {
@@ -38,7 +38,32 @@ export default {
         list: [...category],
       },
     },
-
+    {
+      title: 'Sub Category',
+      description: 'What sub-category does this product fall under?',
+      name: 'subCategory',
+      type: 'string',
+      options: {
+        list: [...subcategory],
+      },
+    },
+    /////////
+    // {
+    //   name: 'navelement',
+    //   title: 'Navigation element',
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    // },
+    // {
+    //   title: 'Category',
+    //   description: 'What kind of product is it?',
+    //   name: 'category',
+    //   type: 'string',
+    // options: {
+    //   list: [...category],
+    // },
+    // },
+    ///////////////
     {
       name: 'brand',
       title: 'Brand Name',

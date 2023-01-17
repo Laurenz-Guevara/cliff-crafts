@@ -19,7 +19,7 @@ export function Store() {
           slug,
           }`
       )
-      .then((data) => (setData(data), console.log('Called useEffect')))
+      .then((data) => setData(data))
       .catch(console.error);
   }, []);
 

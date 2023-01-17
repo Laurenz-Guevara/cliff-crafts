@@ -14,7 +14,6 @@ export function Meganav(props: { data: Collection[]; selected: string }) {
             )
             .map((item: Collection) => (
               <li key={item.navheader}>
-                {console.log(item.category)}
                 <h1>
                   <NavLink
                     to={'/collection/' + item.slug.current}
