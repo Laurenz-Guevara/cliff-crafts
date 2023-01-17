@@ -62,9 +62,12 @@ export function NavBar() {
                 setSelected('climbing');
               }}
             >
-              <a href="#" className={openClimbingShoes ? 'toggled-btn' : ''}>
+              <NavLink
+                to={''}
+                className={openClimbingShoes ? 'toggled-btn' : ''}
+              >
                 Climbing <i className="fas fa-chevron-down"></i>
-              </a>
+              </NavLink>
               {openClimbingShoes && (
                 <Meganav data={data!} selected={selected} />
               )}
@@ -81,9 +84,9 @@ export function NavBar() {
                 setSelected('accessories');
               }}
             >
-              <a href="#" className={openAccessories ? 'toggled-btn' : ''}>
+              <NavLink to={''} className={openAccessories ? 'toggled-btn' : ''}>
                 Accessories <i className="fas fa-chevron-down"></i>
-              </a>
+              </NavLink>
 
               {openAccessories && <Meganav data={data!} selected={selected} />}
             </li>
@@ -99,9 +102,9 @@ export function NavBar() {
                 setSelected('camping');
               }}
             >
-              <a href="#" className={openDeals ? 'toggled-btn' : ''}>
+              <NavLink to={''} className={openDeals ? 'toggled-btn' : ''}>
                 Camping <i className="fas fa-chevron-down"></i>
-              </a>
+              </NavLink>
 
               {openDeals && <Meganav data={data!} selected={selected} />}
             </li>

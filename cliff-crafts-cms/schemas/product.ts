@@ -1,4 +1,5 @@
 import category from '../custom/category'
+import navcategory from '../custom/navcategory'
 import subcategory from '../custom/subcategory'
 import gender from '../custom/gender'
 
@@ -39,6 +40,15 @@ export default {
       },
     },
     {
+      title: 'Navigation Category',
+      description: 'What navigation category does this fall under?',
+      name: 'navCategory',
+      type: 'string',
+      options: {
+        list: [...navcategory],
+      },
+    },
+    {
       title: 'Sub Category',
       description: 'What sub-category does this product fall under?',
       name: 'subCategory',
@@ -47,23 +57,6 @@ export default {
         list: [...subcategory],
       },
     },
-    /////////
-    // {
-    //   name: 'navelement',
-    //   title: 'Navigation element',
-    //   type: 'array',
-    //   of: [{type: 'string'}],
-    // },
-    // {
-    //   title: 'Category',
-    //   description: 'What kind of product is it?',
-    //   name: 'category',
-    //   type: 'string',
-    // options: {
-    //   list: [...category],
-    // },
-    // },
-    ///////////////
     {
       name: 'brand',
       title: 'Brand Name',

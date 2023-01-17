@@ -11,7 +11,7 @@ export function Collection() {
   useEffect(() => {
     client
       .fetch(
-        `*[subCategory == "${slug}"]{
+        `*[navCategory == "${slug}" || subCategory == "${slug}" ]{
           brand,
           productName,
           image,
