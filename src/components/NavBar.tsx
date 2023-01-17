@@ -39,15 +39,7 @@ export function NavBar() {
         <div className="nav-left">
           <NavLink to={'/store'}>CLIFFCRAFTS</NavLink>
         </div>
-        <div
-          className="nav-burger"
-          onClick={() => {
-            setOpenBurger(!openBurger);
-          }}
-        >
-          <i className="fas fa-bars burger"></i>{' '}
-          {openBurger && <Meganav data={data!} selected={''} />}
-        </div>
+
         <div className="nav-right">
           <ul className="navbar-nav">
             <li
@@ -108,12 +100,21 @@ export function NavBar() {
 
               {openDeals && <Meganav data={data!} selected={selected} />}
             </li>
-            <li>
+            <li className="shopping-basket-container">
               <NavLink to={'/checkout'}>
                 <i className="fas fa-shopping-basket"></i>{' '}
               </NavLink>
             </li>
           </ul>
+        </div>
+        <div
+          className="nav-burger"
+          onClick={() => {
+            setOpenBurger(!openBurger);
+          }}
+        >
+          <i className="fas fa-bars burger"></i>{' '}
+          {openBurger && <Meganav data={data!} selected={''} />}
         </div>
         <div className="nav-search">
           <input

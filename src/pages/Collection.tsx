@@ -5,13 +5,14 @@ import { NavLink, useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export function Collection() {
-  const { slug } = useParams();
+  const { slug }: any = useParams();
   const [data, setData] = useState<Product[]>();
-  console.log(slug);
   useEffect(() => {
     client
       .fetch(
-        `*[navCategory == "${slug}" || subCategory == "${slug}" ]{
+        `*[navCategory == "${slug}" || subCategory == "${slug}" || brand == "${
+          slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase()
+        }"]{
           brand,
           productName,
           image,
@@ -28,7 +29,6 @@ export function Collection() {
       <NavBar />
       <div className="wrapper">
         <h1>Collection</h1>
-
         <div className="wrapper">
           <div className="product-preview">
             <div className="product-preview-container">
