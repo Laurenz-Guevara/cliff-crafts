@@ -18,7 +18,6 @@ export function StoreProducts(props: { data: Product[] }) {
                 </div>
                 <div className="product-preview-text-left">
                   <h1>{item.brand}</h1>
-
                   {item.price % 1 === 0 ? (
                     <p id="price">£{item.price}.00</p>
                   ) : (
