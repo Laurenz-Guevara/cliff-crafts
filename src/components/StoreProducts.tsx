@@ -13,6 +13,9 @@ export function StoreProducts(props: { data: Product[] }) {
                 src={urlFor(item.image && item.image[0]).url()}
               ></LazyLoadImage>
               <div className="product-preview-text">
+                <div className="product-preview-text-right">
+                  <h2>{item.productName}</h2>
+                </div>
                 <div className="product-preview-text-left">
                   <h1>{item.brand}</h1>
 
@@ -21,10 +24,6 @@ export function StoreProducts(props: { data: Product[] }) {
                   ) : (
                     <p id="price">£{item.price}</p>
                   )}
-                </div>
-
-                <div className="product-preview-text-right">
-                  <h2>{item.productName}</h2>
                 </div>
               </div>
             </NavLink>
