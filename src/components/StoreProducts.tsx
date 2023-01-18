@@ -12,13 +12,21 @@ export function StoreProducts(props: { data: Product[] }) {
               <LazyLoadImage
                 src={urlFor(item.image && item.image[0]).url()}
               ></LazyLoadImage>
-              <h2>{item.brand}</h2>
-              <h1>{item.productName}</h1>
-              {item.price % 1 === 0 ? (
-                <p id="price">£{item.price}.00</p>
-              ) : (
-                <p id="price">£{item.price}</p>
-              )}
+              <div className="product-preview-text">
+                <div className="product-preview-text-left">
+                  <h2>{item.brand}</h2>
+
+                  {item.price % 1 === 0 ? (
+                    <p id="price">£{item.price}.00</p>
+                  ) : (
+                    <p id="price">£{item.price}</p>
+                  )}
+                </div>
+
+                <div className="product-preview-text-right">
+                  <h1>{item.productName}</h1>
+                </div>
+              </div>
             </NavLink>
           </div>
         ))}
