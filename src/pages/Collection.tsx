@@ -29,11 +29,9 @@ export function Collection() {
     <>
       <NavBar />
       <div className="wrapper">
-        <h1>Collection</h1>
-        <div className="wrapper">
-          <div className="product-preview">
-            {data && <StoreProducts data={data} />}
-          </div>
+        <h1>Our Collection</h1>
+        <div className="product-preview">
+          {data && <StoreProducts data={data} />}
         </div>
       </div>
     </>
