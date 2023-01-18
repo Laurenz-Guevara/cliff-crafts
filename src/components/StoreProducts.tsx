@@ -14,7 +14,7 @@ export function StoreProducts(props: { data: Product[] }) {
               ></LazyLoadImage>
               <div className="product-preview-text">
                 <div className="product-preview-text-left">
-                  <h2>{item.brand}</h2>
+                  <h1>{item.brand}</h1>
 
                   {item.price % 1 === 0 ? (
                     <p id="price">£{item.price}.00</p>
@@ -24,7 +24,7 @@ export function StoreProducts(props: { data: Product[] }) {
                 </div>
 
                 <div className="product-preview-text-right">
-                  <h1>{item.productName}</h1>
+                  <h2>{item.productName}</h2>
                 </div>
               </div>
             </NavLink>
