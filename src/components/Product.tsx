@@ -40,7 +40,7 @@ export function Product() {
                 <p id="price">£{data.price}</p>
               )}
 
-              <NavLink to="/store" className="cta-button">
+              <NavLink to="/store" className="cta-button" aria-label="Buy Item">
                 Buy Now
               </NavLink>
 

@@ -16,7 +16,7 @@ export function Splashpage() {
           <div className="hero">
             <h1>CLIFFCRAFTS</h1>
             <h2>AFFORDABLE CLIMBING GEAR FROM BRANDS YOU TRUST</h2>
-            <NavLink to="/store" className="cta-button">
+            <NavLink to="/store" className="cta-button" aria-label="Enter Shop">
               SHOP NOW
             </NavLink>
           </div>

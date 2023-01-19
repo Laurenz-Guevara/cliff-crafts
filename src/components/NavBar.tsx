@@ -124,7 +124,7 @@ export function NavBar() {
             value={inputValue}
             onChange={handleUserInput}
           ></input>
-          <button className="search-btn">
+          <button className="search-btn" aria-label="Search">
             <i className="fas fa-search"></i>
           </button>
         </div>
