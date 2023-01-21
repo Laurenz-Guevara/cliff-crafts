@@ -21,7 +21,6 @@ export function Store() {
       .then((data) => setData(data))
       .catch(console.error);
   }, []);
-
   return (
     <>
       <NavBar />

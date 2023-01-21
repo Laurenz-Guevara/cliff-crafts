@@ -4,9 +4,15 @@ import { NavLink, useParams } from 'react-router-dom';
 import '../styles/pages/store.scss';
 import '../styles/components/productPreview.scss';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../redux/cartSlice';
+
 export function Product() {
   const [data, setData] = useState<Product>();
   const { slug } = useParams();
+
+  const cart = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     client
@@ -39,9 +45,24 @@ export function Product() {
               ) : (
                 <p id="price">£{data.price}</p>
               )}
-              <NavLink to="/store" className="cta-button" aria-label="Buy Item">
+              <button
+                className="cta-button"
+                aria-label="Buy Item"
+                onClick={() =>
+                  dispatch(
+                    addItem({
+                      brand: data.brand,
+                      image: data.image,
+                      price: data.price,
+                      productName: data.productName,
+                      slug: data.slug,
+                    })
+                  )
+                }
+              >
                 Buy Now
-              </NavLink>
+              </button>
+
               <p>{data.description}</p>
               <p>{data.specification}</p>
             </div>

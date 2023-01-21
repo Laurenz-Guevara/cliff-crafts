@@ -5,6 +5,19 @@ interface Slug {
   current: string;
 }
 
+interface Cart {
+  id: number;
+  brand: string;
+  productName: string;
+  price: number;
+  image: any;
+  slug: Slug;
+}
+
+interface CartState {
+  cart: Cart[];
+}
+
 type Product = {
   brand: string;
   productName: string;
