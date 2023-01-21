@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { client } from '../../client';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../styles/components/navbar.scss';
 import { Meganav } from './Meganav';
@@ -13,6 +14,9 @@ export function NavBar() {
   const [openBurger, setOpenBurger] = useState(false);
   const [data, setData] = useState<Collection[]>();
   let [selected, setSelected] = useState<string>();
+
+  const checkoutItems = useSelector((state: any) => state.cart);
+
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
   };
@@ -101,6 +105,11 @@ export function NavBar() {
             <li className="shopping-basket-container">
               <NavLink to={'/checkout'}>
                 <i className="fas fa-shopping-basket"></i>{' '}
+                <span className="cart-item-qty">
+                  {checkoutItems.cart.length !== 0
+                    ? checkoutItems.cart.length
+                    : ''}
+                </span>
               </NavLink>
             </li>
           </ul>
