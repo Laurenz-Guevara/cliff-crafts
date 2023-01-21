@@ -12,12 +12,10 @@ export function NavBar() {
   const [openDeals, setDeals] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [data, setData] = useState<Collection[]>();
-  let [selected, setSelected] = useState<any>();
+  let [selected, setSelected] = useState<string>();
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
   };
-
-  //Note useState would trigger the API to make another call, possibly try useRef() - This might be untrue as its before the return
 
   useEffect(() => {
     client
@@ -61,7 +59,7 @@ export function NavBar() {
                 Climbing <i className="fas fa-chevron-down"></i>
               </NavLink>
               {openClimbingShoes && (
-                <Meganav data={data!} selected={selected} />
+                <Meganav data={data!} selected={selected!} />
               )}
             </li>
             <li
@@ -80,7 +78,7 @@ export function NavBar() {
                 Accessories <i className="fas fa-chevron-down"></i>
               </NavLink>
 
-              {openAccessories && <Meganav data={data!} selected={selected} />}
+              {openAccessories && <Meganav data={data!} selected={selected!} />}
             </li>
             <li
               onMouseEnter={() => {
@@ -98,7 +96,7 @@ export function NavBar() {
                 Camping <i className="fas fa-chevron-down"></i>
               </NavLink>
 
-              {openDeals && <Meganav data={data!} selected={selected} />}
+              {openDeals && <Meganav data={data!} selected={selected!} />}
             </li>
             <li className="shopping-basket-container">
               <NavLink to={'/checkout'}>

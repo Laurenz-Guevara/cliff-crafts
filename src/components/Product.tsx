@@ -39,11 +39,9 @@ export function Product() {
               ) : (
                 <p id="price">£{data.price}</p>
               )}
-
               <NavLink to="/store" className="cta-button" aria-label="Buy Item">
                 Buy Now
               </NavLink>
-
               <p>{data.description}</p>
               <p>{data.specification}</p>
             </div>
