@@ -2,12 +2,15 @@ import React from 'react';
 import { NavBar } from '../components/NavBar';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../redux/cartSlice';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { urlFor } from '../../client';
+import { decreaseItem } from '../redux/cartSlice';
 
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
+
+  console.log(checkoutItems);
   return (
     <>
       <NavBar />
@@ -34,8 +37,16 @@ export function Checkout() {
                           <p id="price">£{item.price}</p>
                         )}
                       </div>
+                      <h1>You are buying a total of {item.quantity}</h1>
                     </div>
                   </NavLink>
+                  <button
+                    onClick={() =>
+                      dispatch(decreaseItem({ productName: item.productName }))
+                    }
+                  >
+                    Remove 1
+                  </button>
                 </div>
               ))}
           </div>

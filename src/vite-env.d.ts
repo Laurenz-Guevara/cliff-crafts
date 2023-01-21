@@ -12,10 +12,12 @@ interface Cart {
   price: number;
   image: any;
   slug: Slug;
+  quantity: number;
 }
 
 interface CartState {
   cart: Cart[];
+  cartTotalItems: number;
 }
 
 type Product = {
@@ -26,6 +28,7 @@ type Product = {
   price: number;
   image: any;
   slug: Slug;
+  quantity: number;
 };
 
 type Collection = {

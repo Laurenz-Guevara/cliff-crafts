@@ -56,6 +56,7 @@ export function Product() {
                       price: data.price,
                       productName: data.productName,
                       slug: data.slug,
+                      quantity: 1,
                     })
                   )
                 }

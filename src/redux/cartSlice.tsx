@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: CartState = {
   cart: [],
+  cartTotalItems: 1,
 };
 
 export const cartSlice = createSlice({
@@ -16,19 +17,43 @@ export const cartSlice = createSlice({
         price: number;
         image: any;
         slug: Slug;
+        quantity: number;
       }>
     ) => {
-      state.cart.push({
-        id: state.cart.length,
-        brand: action.payload.brand,
-        productName: action.payload.productName,
-        image: action.payload.image,
-        price: action.payload.price,
-        slug: action.payload.slug,
-      });
+      const itemIndex = state.cart.findIndex(
+        (item) => item.productName === action.payload.productName
+      );
+      if (itemIndex >= 0) {
+        state.cart[itemIndex].quantity += 1;
+      } else {
+        state.cart.push({
+          id: state.cart.length,
+          brand: action.payload.brand,
+          productName: action.payload.productName,
+          image: action.payload.image,
+          price: action.payload.price,
+          slug: action.payload.slug,
+          quantity: 1,
+        });
+      }
+    },
+
+    decreaseItem: (state, action) => {
+      const itemIndex = state.cart.findIndex(
+        (item) => item.productName === action.payload.productName
+      );
+      if (state.cart[itemIndex].quantity > 1) {
+        state.cart[itemIndex].quantity -= 1;
+      } else if (state.cart[itemIndex].quantity === 1) {
+        const nextCartItem = state.cart.filter(
+          (cart) => cart.productName !== action.payload.productName
+        );
+
+        state.cart = nextCartItem;
+      }
     },
   },
 });
 
-export const { addItem } = cartSlice.actions;
+export const { addItem, decreaseItem } = cartSlice.actions;
 export default cartSlice.reducer;
