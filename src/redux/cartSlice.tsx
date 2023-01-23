@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 const initialState: CartState = {
   cart: [],
   cartTotalItems: 0,
+  cartTotalCost: 0,
 };
 
 export const cartSlice = createSlice({
@@ -21,6 +22,10 @@ export const cartSlice = createSlice({
       }>
     ) => {
       state.cartTotalItems += 1;
+
+      state.cartTotalCost =
+        Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
+
       const itemIndex = state.cart.findIndex(
         (item) => item.productName === action.payload.productName
       );
@@ -39,8 +44,11 @@ export const cartSlice = createSlice({
       }
     },
 
-    decreaseItem: (state, action) => {
+    decrementItem: (state, action) => {
       state.cartTotalItems -= 1;
+      state.cartTotalCost =
+        Math.round((state.cartTotalCost -= action.payload.price) * 1e2) / 1e2;
+
       const itemIndex = state.cart.findIndex(
         (item) => item.productName === action.payload.productName
       );
@@ -54,8 +62,19 @@ export const cartSlice = createSlice({
         state.cart = nextCartItem;
       }
     },
+
+    incrementItem: (state, action) => {
+      state.cartTotalItems += 1;
+      state.cartTotalCost =
+        Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
+
+      const itemIndex = state.cart.findIndex(
+        (item) => item.productName === action.payload.productName
+      );
+      state.cart[itemIndex].quantity += 1;
+    },
   },
 });
 
-export const { addItem, decreaseItem } = cartSlice.actions;
+export const { addItem, incrementItem, decrementItem } = cartSlice.actions;
 export default cartSlice.reducer;

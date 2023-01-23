@@ -18,6 +18,7 @@ interface Cart {
 interface CartState {
   cart: Cart[];
   cartTotalItems: number;
+  cartTotalCost: number;
 }
 
 type Product = {

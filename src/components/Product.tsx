@@ -40,11 +40,7 @@ export function Product() {
               <h2>{data.brand}</h2>
               <h1>{data.productName}</h1>
               <img src={urlFor(data.image && data.image[0]).url()}></img>
-              {data.price % 1 === 0 ? (
-                <p id="price">£{data.price}.00</p>
-              ) : (
-                <p id="price">£{data.price}</p>
-              )}
+              <p id="price">£{data.price.toFixed(2)}</p>
               <button
                 className="cta-button"
                 aria-label="Buy Item"
