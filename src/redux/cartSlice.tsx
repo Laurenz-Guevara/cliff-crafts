@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: CartState = {
   cart: [],
-  cartTotalItems: 1,
+  cartTotalItems: 0,
 };
 
 export const cartSlice = createSlice({
@@ -20,6 +20,7 @@ export const cartSlice = createSlice({
         quantity: number;
       }>
     ) => {
+      state.cartTotalItems += 1;
       const itemIndex = state.cart.findIndex(
         (item) => item.productName === action.payload.productName
       );
@@ -39,6 +40,7 @@ export const cartSlice = createSlice({
     },
 
     decreaseItem: (state, action) => {
+      state.cartTotalItems -= 1;
       const itemIndex = state.cart.findIndex(
         (item) => item.productName === action.payload.productName
       );

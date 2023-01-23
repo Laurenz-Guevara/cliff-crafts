@@ -106,8 +106,8 @@ export function NavBar() {
               <NavLink to={'/checkout'}>
                 <i className="fas fa-shopping-basket"></i>{' '}
                 <span className="cart-item-qty">
-                  {checkoutItems.cart.length !== 0
-                    ? checkoutItems.cart.length
+                  {checkoutItems.cartTotalItems !== 0
+                    ? checkoutItems.cartTotalItems
                     : ''}
                 </span>
               </NavLink>
