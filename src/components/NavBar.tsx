@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { client } from '../../client';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import '../styles/components/navbar.scss';
@@ -14,12 +14,17 @@ export function NavBar() {
   const [openBurger, setOpenBurger] = useState(false);
   const [data, setData] = useState<Collection[]>();
   let [selected, setSelected] = useState<string>();
-
+  const navigate = useNavigate();
   const checkoutItems = useSelector((state: any) => state.cart);
 
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
   };
+
+  function handleSubmit(e: any) {
+    e.preventDefault();
+    navigate('/search/' + inputValue);
+  }
   useEffect(() => {
     client
       .fetch(
@@ -123,7 +128,7 @@ export function NavBar() {
           {openBurger && <Meganav data={data!} selected={''} />}
         </div>
         <div className="nav-search">
-          <form action={'/search/' + inputValue}>
+          <form onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Search for a product..."
