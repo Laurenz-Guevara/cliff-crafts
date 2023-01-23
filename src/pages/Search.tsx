@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { NavBar } from '../components/NavBar';
 import { NavLink, useParams } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { StoreProducts } from '../components/StoreProducts';
 
-export function Collection() {
+export function Search() {
   const { slug }: any = useParams();
   const [data, setData] = useState<Product[]>();
   useEffect(() => {
     client
       .fetch(
-        `*[navCategory == "${slug}" || subCategory == "${slug}" || brand match "${slug}"]{
+        `*[navCategory match "${slug}*" || subCategory match "${slug}*" || productName match "${slug}*"|| brand match "${slug}*"] {
           brand,
           productName,
           image,
@@ -27,10 +26,18 @@ export function Collection() {
     <>
       <NavBar />
       <div className="wrapper">
-        <h1>Our Collection</h1>
-        <div className="product-preview">
-          {data && <StoreProducts data={data} />}
-        </div>
+        {data?.length !== 0 && slug !== undefined ? (
+          <>
+            <h1>Search results for "{slug}".</h1>
+            <div className="product-preview">
+              <StoreProducts data={data!} />
+            </div>
+          </>
+        ) : slug !== undefined ? (
+          <h1>Sorry we couldn't find anything that matches "{slug}".</h1>
+        ) : (
+          <h1>Please enter at least one keyword.</h1>
+        )}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { client } from '../../client';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import '../styles/components/navbar.scss';
 import { Meganav } from './Meganav';
@@ -20,7 +20,6 @@ export function NavBar() {
   const handleUserInput = (e: any) => {
     setInputValue(e.target.value);
   };
-
   useEffect(() => {
     client
       .fetch(
@@ -124,16 +123,20 @@ export function NavBar() {
           {openBurger && <Meganav data={data!} selected={''} />}
         </div>
         <div className="nav-search">
-          <input
-            type="search"
-            placeholder="Search for a product..."
-            className="nav-search-bar"
-            value={inputValue}
-            onChange={handleUserInput}
-          ></input>
-          <button className="search-btn" aria-label="Search">
-            <i className="fas fa-search"></i>
-          </button>
+          <form action={'/search/' + inputValue}>
+            <input
+              type="search"
+              placeholder="Search for a product..."
+              className="nav-search-bar"
+              value={inputValue}
+              onChange={handleUserInput}
+            ></input>
+          </form>
+          <NavLink to={'/search/' + inputValue} className="search-btn-nav">
+            <button className="search-btn" aria-label="Search">
+              <i className="fas fa-search"></i>
+            </button>
+          </NavLink>
         </div>
       </nav>
     </div>

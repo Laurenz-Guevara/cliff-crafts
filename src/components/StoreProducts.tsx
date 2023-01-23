@@ -10,6 +10,7 @@ export function StoreProducts(props: { data: Product[] }) {
           <div key={item.productName} className="product-preview-wrapper">
             <NavLink to={'/products/' + item.slug.current}>
               <LazyLoadImage
+                effect="blur"
                 src={urlFor(item.image && item.image[0]).url()}
               ></LazyLoadImage>
               <div className="product-preview-text">

@@ -57,7 +57,7 @@ export function Product() {
                   )
                 }
               >
-                Buy Now
+                Add To Cart
               </button>
 
               <p>{data.description}</p>
