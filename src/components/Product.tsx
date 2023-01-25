@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { useParams } from 'react-router-dom';
-import '../styles/components/product.scss';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cartSlice';
 import { useNavigate } from 'react-router-dom';
+
+import '../styles/components/product.scss';
 
 export function Product() {
   const sizes: any = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52];
@@ -14,6 +15,11 @@ export function Product() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [sliderData, setSliderData] = useState(0);
+  const handleClick = (index: number) => {
+    console.log(index);
+    setSliderData(index);
+  };
 
   useEffect(() => {
     client
@@ -37,7 +43,19 @@ export function Product() {
       <div className="wrapper">
         {data && (
           <div className="product-container">
-            <img src={urlFor(data.image && data.image[0]).url()}></img>
+            <img src={urlFor(data.image && data.image[sliderData]).url()}></img>
+            <div className="thumbnail-images">
+              {data.image.map((item: any, i: number) => {
+                return (
+                  <LazyLoadImage
+                    key={item._key}
+                    effect="blur"
+                    src={urlFor(item).url()}
+                    onClick={() => handleClick(i)}
+                  ></LazyLoadImage>
+                );
+              })}
+            </div>
             <h2>{data.brand}</h2>
             <div className="product-text">
               <h1>{data.productName}</h1>

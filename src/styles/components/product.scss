@@ -5,6 +5,27 @@
     width: 100%;
   }
 
+  .thumbnail-images {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    span {
+      img {
+        border: 1px solid $border;
+        min-width: 80px;
+        min-height: 80px;
+        width: 20vw;
+        height: 20vw;
+        margin: 0 10px 3px 0;
+        padding: 5px;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+    }
+  }
+
   .product-text {
     display: flex;
     align-items: baseline;
