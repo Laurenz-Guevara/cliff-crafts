@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavBar } from '../components/NavBar';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { urlFor } from '../../client';
@@ -11,7 +11,8 @@ import '../styles/components/checkout.scss';
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
-  console.log(checkoutItems);
+  const navigate = useNavigate();
+
   return (
     <>
       <NavBar />
@@ -80,7 +81,14 @@ export function Checkout() {
             <h1>Total</h1>
             <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
           </div>
-          <button>Complete Purchase</button>
+          {checkoutItems.cartTotalItems !== 0 ? (
+            <button>Complete Purchase</button>
+          ) : (
+            <>
+              <h1>Your Cliffcrafts cart is empty.</h1>
+              <button onClick={() => navigate('/store/')}>Browse Store</button>
+            </>
+          )}
         </div>
       </div>
     </>

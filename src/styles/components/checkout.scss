@@ -6,8 +6,6 @@
 }
 
 .checkout {
-  border-top: 1px solid #e1e4e7;
-
   a {
     img {
       width: 110px;
@@ -36,7 +34,7 @@
         }
 
         h3 {
-          padding-top: 10px;
+          padding-top: 5px;
           font-weight: bold;
         }
       }
@@ -70,13 +68,16 @@
     }
   }
 
+  .checkout-item:first-child {
+    border-top: 1px solid $border;
+  }
   .checkout-item:last-child {
     border-bottom: 0;
   }
 }
 
 .checkout-footer {
-  border-top: 1px solid #e1e4e7;
+  border-top: 1px solid $border;
   position: sticky;
   background-color: $white;
   padding-bottom: 24px;
@@ -88,12 +89,12 @@
   }
 
   button {
-    background-color: $raisin-black;
+    background-color: $maximum-red;
     border: none;
     font-size: 36px;
     width: 100%;
     padding: 7px 47px 2px;
     text-decoration: none;
-    color: #fff;
+    color: $white;
   }
 }

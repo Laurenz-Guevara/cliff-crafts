@@ -114,7 +114,7 @@
     box-sizing: border-box;
     z-index: 1;
     cursor: default;
-    background-color: #efefef;
+    background-color: $bright-grey;
 
     display: flex;
     justify-content: flex-start;
@@ -148,7 +148,7 @@
 
 @media (min-width: $tablet-breakpoint) {
   .toggled-btn {
-    background-color: #efefef;
+    background-color: $bright-grey;
   }
   .navbar {
     .nav-left {

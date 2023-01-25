@@ -60,7 +60,8 @@
   }
   .cart-btn-container {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 10px;
     padding-bottom: 20px;
     border-bottom: 1px solid $border;
@@ -68,11 +69,18 @@
     .cart-btn {
       background-color: $maximum-red;
       border: none;
-      font-size: 40px;
       width: 100%;
-      padding: 7px 47px 2px;
+      font-size: 40px;
+      padding: 7px 0 2px;
       text-decoration: none;
       color: $white;
+    }
+
+    .cart-btn:first-child {
+      background-color: $white;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      color: $raisin-black;
+      margin-bottom: 15px;
     }
   }
 
@@ -80,6 +88,20 @@
     p {
       font-size: 20px;
       padding-bottom: 15px;
+    }
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .product-container {
+    .cart-btn-container {
+      flex-wrap: nowrap;
+      .cart-btn {
+        width: 48%;
+      }
+      .cart-btn:first-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

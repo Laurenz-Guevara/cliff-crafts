@@ -66,6 +66,25 @@ export function Product() {
             <div className="cart-btn-container">
               <button
                 className="cart-btn"
+                aria-label="Add to Basket"
+                onClick={() => {
+                  dispatch(
+                    addItem({
+                      brand: data.brand,
+                      image: data.image,
+                      price: data.price,
+                      productName: data.productName,
+                      slug: data.slug,
+                      quantity: 1,
+                      size: size,
+                    })
+                  );
+                }}
+              >
+                Add To Cart
+              </button>
+              <button
+                className="cart-btn"
                 aria-label="Buy Item"
                 onClick={() => {
                   dispatch(
@@ -82,7 +101,7 @@ export function Product() {
                     navigate('/checkout');
                 }}
               >
-                Add To Cart
+                Buy Now
               </button>
             </div>
             <div className="product-description">
