@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { urlFor } from '../../client';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import '../styles/components/storeProducts.scss';
 
 export function StoreProducts(props: { data: Product[] }) {
   return (

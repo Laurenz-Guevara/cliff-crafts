@@ -32,7 +32,6 @@ export const cartSlice = createSlice({
           item.productName === action.payload.productName &&
           item.size === action.payload.size
       );
-
       if (itemIndex >= 0 && state.cart[itemIndex].size == action.payload.size) {
         state.cart[itemIndex].quantity += 1;
       } else {
@@ -81,8 +80,6 @@ export const cartSlice = createSlice({
           item.productName === action.payload.productName &&
           item.size === action.payload.size
       );
-
-      console.log(action.payload);
 
       state.cart[itemIndex].quantity += 1;
     },

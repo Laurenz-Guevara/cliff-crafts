@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
-import { NavLink, useParams } from 'react-router-dom';
-import '../styles/pages/store.scss';
+import { useParams } from 'react-router-dom';
 import '../styles/components/product.scss';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 export function Product() {
   const sizes: any = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52];
   const [data, setData] = useState<Product>();
   const [size, selectedSize] = useState<number>(sizes[0]);
   const { slug } = useParams();
-
-  const cart = useSelector((state: any) => state.cart);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export function Product() {
       .then((data) => setData(data[0]))
       .catch(console.error);
   }, [slug]);
-  console.log(size);
+
   return (
     <>
       <div className="wrapper">
@@ -68,7 +67,7 @@ export function Product() {
               <button
                 className="cart-btn"
                 aria-label="Buy Item"
-                onClick={() =>
+                onClick={() => {
                   dispatch(
                     addItem({
                       brand: data.brand,
@@ -79,8 +78,9 @@ export function Product() {
                       quantity: 1,
                       size: size,
                     })
-                  )
-                }
+                  ),
+                    navigate('/checkout');
+                }}
               >
                 Add To Cart
               </button>

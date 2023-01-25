@@ -6,61 +6,81 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { urlFor } from '../../client';
 import { incrementItem, decrementItem } from '../redux/cartSlice';
 
+import '../styles/components/checkout.scss';
+
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
-
   console.log(checkoutItems);
   return (
     <>
       <NavBar />
       <div className="wrapper">
-        <h1>Checkout</h1>
-        {checkoutItems.cartTotalCost % 1 === 0 ? (
-          <h3 id="price">£{checkoutItems.cartTotalCost}.00</h3>
-        ) : (
-          <h3 id="price">£{checkoutItems.cartTotalCost}</h3>
-        )}
+        <div className="checkout-header">
+          <h1>Checkout</h1>
+          <h1>{checkoutItems.cartTotalItems} Items</h1>
+        </div>
+
         <div className="checkout">
           {checkoutItems.cart &&
             checkoutItems.cart.map((item: any) => (
-              <div key={item.id} className="product-preview-wrapper">
+              <div key={item.id + item.productName} className="checkout-item">
                 <NavLink to={'/products/' + item.slug.current}>
                   <LazyLoadImage
                     src={urlFor(item.image && item.image[0]).url()}
                   ></LazyLoadImage>
                 </NavLink>
-                <h1>Amount: {item.quantity}</h1>
-                <h1>Size: {item.size}</h1>
-                <button
-                  onClick={() =>
-                    dispatch(
-                      incrementItem({
-                        productName: item.productName,
-                        size: item.size,
-                        price: item.price,
-                      })
-                    )
-                  }
-                >
-                  Add 1
-                </button>
-                <button
-                  onClick={() =>
-                    dispatch(
-                      decrementItem({
-                        productName: item.productName,
-                        size: item.size,
-                        price: item.price,
-                        id: item.id,
-                      })
-                    )
-                  }
-                >
-                  Remove 1
-                </button>
+
+                <div className="checkout-item-container">
+                  <div className="checkout-item-title">
+                    <h1>{item.productName}</h1>
+                  </div>
+                  <div className="checkout-item-details">
+                    <h2> Size: {item.size}</h2>
+                    <h3>£{item.price.toFixed(2)}</h3>
+                  </div>
+                  <div className="adjust-item-qty">
+                    <button
+                      className="adjust-item-element"
+                      onClick={() =>
+                        dispatch(
+                          decrementItem({
+                            productName: item.productName,
+                            size: item.size,
+                            price: item.price,
+                            id: item.id,
+                          })
+                        )
+                      }
+                    >
+                      <i className="fa fa-minus" aria-hidden="false"></i>
+                    </button>
+                    <p className="adjust-item-element">{item.quantity}</p>
+                    <button
+                      className="adjust-item-element"
+                      onClick={() =>
+                        dispatch(
+                          incrementItem({
+                            productName: item.productName,
+                            size: item.size,
+                            price: item.price,
+                          })
+                        )
+                      }
+                    >
+                      <i className="fa fa-plus" aria-hidden="false"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
+        </div>
+        <div className="checkout-footer">
+          <div className="cart-total">
+            <h1>Total</h1>
+            <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
+          </div>
+          <button>Complete Purchase</button>
         </div>
       </div>
     </>

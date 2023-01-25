@@ -1,8 +1,5 @@
 import { NavLink } from 'react-router-dom';
 
-import '../styles/pages/store.scss';
-import '../styles/components/productPreview.scss';
-
 export function Meganav(props: { data: Collection[]; selected: string }) {
   return (
     <div className="mega-menu">
