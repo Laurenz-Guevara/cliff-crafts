@@ -19,6 +19,7 @@ export const cartSlice = createSlice({
         image: any;
         slug: Slug;
         quantity: number;
+        size: number;
       }>
     ) => {
       state.cartTotalItems += 1;
@@ -27,9 +28,12 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) => item.productName === action.payload.productName
+        (item) =>
+          item.productName === action.payload.productName &&
+          item.size === action.payload.size
       );
-      if (itemIndex >= 0) {
+
+      if (itemIndex >= 0 && state.cart[itemIndex].size == action.payload.size) {
         state.cart[itemIndex].quantity += 1;
       } else {
         state.cart.push({
@@ -40,6 +44,7 @@ export const cartSlice = createSlice({
           price: action.payload.price,
           slug: action.payload.slug,
           quantity: 1,
+          size: action.payload.size,
         });
       }
     },
@@ -50,13 +55,16 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost -= action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) => item.productName === action.payload.productName
+        (item) =>
+          item.productName === action.payload.productName &&
+          item.size === action.payload.size
       );
+
       if (state.cart[itemIndex].quantity > 1) {
         state.cart[itemIndex].quantity -= 1;
       } else if (state.cart[itemIndex].quantity === 1) {
         const nextCartItem = state.cart.filter(
-          (cart) => cart.productName !== action.payload.productName
+          (cart) => cart.id !== action.payload.id
         );
 
         state.cart = nextCartItem;
@@ -69,8 +77,13 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) => item.productName === action.payload.productName
+        (item) =>
+          item.productName === action.payload.productName &&
+          item.size === action.payload.size
       );
+
+      console.log(action.payload);
+
       state.cart[itemIndex].quantity += 1;
     },
   },

@@ -30,12 +30,14 @@ export function Checkout() {
                     src={urlFor(item.image && item.image[0]).url()}
                   ></LazyLoadImage>
                 </NavLink>
-
+                <h1>Amount: {item.quantity}</h1>
+                <h1>Size: {item.size}</h1>
                 <button
                   onClick={() =>
                     dispatch(
                       incrementItem({
                         productName: item.productName,
+                        size: item.size,
                         price: item.price,
                       })
                     )
@@ -48,7 +50,9 @@ export function Checkout() {
                     dispatch(
                       decrementItem({
                         productName: item.productName,
+                        size: item.size,
                         price: item.price,
+                        id: item.id,
                       })
                     )
                   }

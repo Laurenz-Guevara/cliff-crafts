@@ -77,6 +77,7 @@ export function Product() {
                       productName: data.productName,
                       slug: data.slug,
                       quantity: 1,
+                      size: size,
                     })
                   )
                 }

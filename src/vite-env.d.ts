@@ -13,6 +13,7 @@ interface Cart {
   image: any;
   slug: Slug;
   quantity: number;
+  size: number;
 }
 
 interface CartState {
