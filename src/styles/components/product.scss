@@ -16,6 +16,10 @@
     flex-wrap: wrap;
 
     span {
+      .active-product-image {
+        border: 1px solid $raisin-black-light;
+      }
+
       img {
         border: 1px solid $border;
         min-width: 80px;

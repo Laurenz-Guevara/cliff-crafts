@@ -48,6 +48,7 @@ export function Product() {
               {data.image.map((item: any, i: number) => {
                 return (
                   <LazyLoadImage
+                    className={sliderData === i ? 'active-product-image' : ''}
                     key={item._key}
                     effect="blur"
                     src={urlFor(item).url()}
@@ -70,7 +71,7 @@ export function Product() {
                       <button
                         onClick={() => selectedSize(number)}
                         className={
-                          size == number ? 'active-product-size-item' : ''
+                          size === number ? 'active-product-size-item' : ''
                         }
                       >
                         <span>{number}</span>
