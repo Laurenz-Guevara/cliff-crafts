@@ -10,6 +10,7 @@ interface Cart {
   brand: string;
   productName: string;
   price: number;
+  stripePrice: string;
   image: any;
   slug: Slug;
   quantity: number;
@@ -28,6 +29,7 @@ type Product = {
   description: string;
   specification: string;
   price: number;
+  stripePrice: string;
   image: any;
   slug: Slug;
   quantity: number;

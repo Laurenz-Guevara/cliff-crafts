@@ -11,8 +11,10 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@sanity/image-url": "^1.0.1",
+    "@stripe/stripe-js": "^1.46.0",
     "eslint-config-airbnb": "^19.0.4",
     "firebase": "^9.15.0",
+    "firebase-functions": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load-image-component": "^1.5.6",

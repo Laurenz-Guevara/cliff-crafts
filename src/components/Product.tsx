@@ -31,6 +31,7 @@ export function Product() {
           description,
           specification,
           price,
+          stripePrice,
           slug,
     }`
       )
@@ -92,6 +93,7 @@ export function Product() {
                       brand: data.brand,
                       image: data.image,
                       price: data.price,
+                      stripePrice: data.stripePrice,
                       productName: data.productName,
                       slug: data.slug,
                       quantity: 1,
@@ -111,6 +113,7 @@ export function Product() {
                       brand: data.brand,
                       image: data.image,
                       price: data.price,
+                      stripePrice: data.stripePrice,
                       productName: data.productName,
                       slug: data.slug,
                       quantity: 1,

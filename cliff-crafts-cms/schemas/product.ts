@@ -93,6 +93,12 @@ export default {
       type: 'number',
     },
     {
+      name: 'stripePrice',
+      title: 'Stripe Price ID',
+      description: 'The ID from stripe',
+      type: 'string',
+    },
+    {
       name: 'gender',
       title: 'Gender',
       description: 'Gender of the product.',

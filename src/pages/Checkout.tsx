@@ -82,7 +82,9 @@ export function Checkout() {
             <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
           </div>
           {checkoutItems.cartTotalItems !== 0 ? (
-            <button>Complete Purchase</button>
+            <form action="/create-checkout-session" method="POST">
+              <button type="submit">Complete Purchase</button>
+            </form>
           ) : (
             <>
               <h1>Your Cliffcrafts cart is empty.</h1>

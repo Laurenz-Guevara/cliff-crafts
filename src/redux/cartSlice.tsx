@@ -16,6 +16,7 @@ export const cartSlice = createSlice({
         brand: string;
         productName: string;
         price: number;
+        stripePrice: string;
         image: any;
         slug: Slug;
         quantity: number;
@@ -41,6 +42,7 @@ export const cartSlice = createSlice({
           productName: action.payload.productName,
           image: action.payload.image,
           price: action.payload.price,
+          stripePrice: action.payload.stripePrice,
           slug: action.payload.slug,
           quantity: 1,
           size: action.payload.size,

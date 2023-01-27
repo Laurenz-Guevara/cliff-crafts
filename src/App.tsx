@@ -8,6 +8,7 @@ import { Collection } from './pages/Collection';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { Search } from './pages/Search';
+import '@stripe/stripe-js';
 
 function App() {
   return (
@@ -21,7 +22,6 @@ function App() {
           <Route path="/search/" element={<Search />} />
           <Route path="/search/:slug" element={<Search />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Provider>
     </>
