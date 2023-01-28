@@ -21,12 +21,20 @@ export function Checkout() {
   const handleClick = async (event: any) => {
     const data = checkoutItems.cart.map((item: any) => {
       return {
-        name: item.productName,
-        images: [urlFor(item.image[0]).url()],
-        amount: item.price * 100,
-        currency: 'gbp',
+        price_data: {
+          currency: 'gbp',
+          product_data: {
+            name: item.productName,
+            images: [urlFor(item.image[0]).url()],
+            description: 'Size: ' + item.size.toString(),
+          },
+          unit_amount: item.price * 100,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 1,
+        },
         quantity: item.quantity,
-        description: 'Size: ' + item.size.toString(),
       };
     });
 
