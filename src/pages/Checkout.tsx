@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { urlFor } from '../../client';
 import { incrementItem, decrementItem } from '../redux/cartSlice';
+import { Triangle } from 'react-loader-spinner';
 
 import '../styles/components/checkout.scss';
 
@@ -13,12 +14,14 @@ import { fetchFromAPI } from '../lib/helpers';
 
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
+  const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const stripe = useStripe();
-
   const handleClick = async (event: any) => {
+    setActive(true);
+    console.log('API');
     const data = checkoutItems.cart.map((item: any) => {
       return {
         price_data: {
@@ -63,6 +66,24 @@ export function Checkout() {
         </div>
 
         <div className="checkout">
+          {active ? (
+            <>
+              <div className="background-shadow"></div>
+              <div className="stripe-loading-card">
+                <Triangle
+                  height="80"
+                  width="80"
+                  color="#da291d"
+                  ariaLabel="triangle-loading"
+                  wrapperClass="spinner"
+                  visible={true}
+                />
+                <h1>We are completing your purchase...</h1>
+              </div>
+            </>
+          ) : (
+            ''
+          )}
           {checkoutItems.cart &&
             checkoutItems.cart.map((item: any) => (
               <div key={item.id + item.productName} className="checkout-item">
@@ -123,7 +144,11 @@ export function Checkout() {
           </div>
           {checkoutItems.cartTotalItems !== 0 ? (
             <>
-              <button className="btn btn-primary" onClick={handleClick}>
+              <button
+                className="btn btn-primary"
+                onClick={handleClick}
+                disabled={active}
+              >
                 Complete Purchase
               </button>
             </>

@@ -27,6 +27,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<CheckoutSuccess />} />
           <Route path="/failed" element={<CheckoutFailed />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Provider>
     </>
