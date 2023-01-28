@@ -122,9 +122,11 @@ export function Checkout() {
             <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
           </div>
           {checkoutItems.cartTotalItems !== 0 ? (
-            <button className="btn btn-primary" onClick={handleClick}>
-              Complete Purchase
-            </button>
+            <>
+              <button className="btn btn-primary" onClick={handleClick}>
+                Complete Purchase
+              </button>
+            </>
           ) : (
             <>
               <h1>Your Cliffcrafts cart is empty.</h1>

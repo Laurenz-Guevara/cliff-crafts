@@ -1,4 +1,4 @@
-const API = 'http://localhost:3333';
+const API = 'https://europe-west1-cliff-crafts.cloudfunctions.net/api';
 
 export async function fetchFromAPI(endpointURL: any, opts: any) {
   const { method = null, body = null } = {
