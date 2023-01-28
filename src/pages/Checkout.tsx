@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,10 +8,42 @@ import { incrementItem, decrementItem } from '../redux/cartSlice';
 
 import '../styles/components/checkout.scss';
 
+import { useStripe } from '@stripe/react-stripe-js';
+import { fetchFromAPI } from './helpers';
+
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const stripe = useStripe();
+
+  const handleClick = async (event: any) => {
+    const data = checkoutItems.cart.map((item: any) => {
+      return {
+        name: item.productName,
+        images: [urlFor(item.image[0]).url()],
+        amount: item.price * 100,
+        currency: 'gbp',
+        quantity: item.quantity,
+        description: 'Size: ' + item.size.toString(),
+      };
+    });
+
+    const body = { line_items: [...data] };
+
+    const { id: sessionId } = await fetchFromAPI('checkouts', {
+      body,
+    });
+
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId,
+    });
+
+    if (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -82,9 +114,9 @@ export function Checkout() {
             <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
           </div>
           {checkoutItems.cartTotalItems !== 0 ? (
-            <form action="/create-checkout-session" method="POST">
-              <button type="submit">Complete Purchase</button>
-            </form>
+            <button className="btn btn-primary" onClick={handleClick}>
+              Complete Purchase
+            </button>
           ) : (
             <>
               <h1>Your Cliffcrafts cart is empty.</h1>

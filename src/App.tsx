@@ -8,6 +8,8 @@ import { Collection } from './pages/Collection';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { Search } from './pages/Search';
+import { CheckoutSuccess } from './pages/CheckoutSuccess';
+import { CheckoutFailed } from './pages/CheckoutFailed';
 import '@stripe/stripe-js';
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path="/search/" element={<Search />} />
           <Route path="/search/:slug" element={<Search />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<CheckoutSuccess />} />
+          <Route path="/failed" element={<CheckoutFailed />} />
         </Routes>
       </Provider>
     </>
