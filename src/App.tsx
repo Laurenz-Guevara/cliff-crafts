@@ -10,6 +10,7 @@ import { store } from './redux/store';
 import { Search } from './pages/Search';
 import { CheckoutSuccess } from './pages/CheckoutSuccess';
 import { CheckoutFailed } from './pages/CheckoutFailed';
+
 import '@stripe/stripe-js';
 
 function App() {

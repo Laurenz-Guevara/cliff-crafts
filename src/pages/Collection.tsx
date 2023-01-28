@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { NavBar } from '../components/NavBar';
-import { NavLink, useParams } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useParams } from 'react-router-dom';
 import { StoreProducts } from '../components/StoreProducts';
 
 export function Collection() {

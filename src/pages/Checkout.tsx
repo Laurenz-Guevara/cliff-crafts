@@ -9,7 +9,7 @@ import { incrementItem, decrementItem } from '../redux/cartSlice';
 import '../styles/components/checkout.scss';
 
 import { useStripe } from '@stripe/react-stripe-js';
-import { fetchFromAPI } from './helpers';
+import { fetchFromAPI } from '../lib/helpers';
 
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
