@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { urlFor } from '../../client';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 import '../styles/components/storeProducts.scss';
 
 export function StoreProducts(props: { data: Product[] }) {
@@ -12,7 +12,7 @@ export function StoreProducts(props: { data: Product[] }) {
           <div key={item.productName} className="product-preview-wrapper">
             <NavLink to={'/products/' + item.slug.current}>
               <LazyLoadImage
-                effect="blur"
+                effect="opacity"
                 src={urlFor(item.image && item.image[0]).url()}
               ></LazyLoadImage>
               <div className="product-preview-text">

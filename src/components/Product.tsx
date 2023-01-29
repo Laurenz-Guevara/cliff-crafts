@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cartSlice';
 import { useNavigate } from 'react-router-dom';
 
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 import '../styles/components/product.scss';
 
 export function Product() {
@@ -51,7 +52,7 @@ export function Product() {
                   <LazyLoadImage
                     className={sliderData === i ? 'active-product-image' : ''}
                     key={item._key}
-                    effect="blur"
+                    effect="opacity"
                     src={urlFor(item).url()}
                     onClick={() => handleClick(i)}
                   ></LazyLoadImage>
