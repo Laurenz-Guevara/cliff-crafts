@@ -14,7 +14,7 @@
       display: block;
       text-decoration: none;
       font-size: 45px;
-      padding: 9px 10px 0 10px;
+      padding: 8px 10px 1px 10px;
       line-height: 0;
       background-color: $maximum-red;
       color: $white;
@@ -35,7 +35,6 @@
     padding: 10px 0;
 
     form {
-      -webkit-appearance: none;
       border-radius: 0;
       width: 100%;
     }
@@ -157,7 +156,6 @@
       margin-right: auto;
       h1 {
         font-size: 55px;
-        padding: 9px 10px 0 10px;
         line-height: 50px;
         background-color: $maximum-red;
         color: $white;

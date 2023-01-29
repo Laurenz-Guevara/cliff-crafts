@@ -82,10 +82,7 @@ export function NavBar() {
                 setSelected('accessories');
               }}
             >
-              <NavLink
-                to={''}
-                className={openAccessories ? 'active-product-size-item' : ''}
-              >
+              <NavLink to={''} className={openAccessories ? 'toggled-btn' : ''}>
                 Accessories <i className="fas fa-chevron-down"></i>
               </NavLink>
 

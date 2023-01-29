@@ -1,0 +1,46 @@
+@import '../global.scss';
+
+.page-not-found-container {
+  display: flex;
+  min-height: 550px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 70px 0 50px 0;
+
+  h1 {
+    flex-basis: 100%;
+    font-size: 50px;
+    line-height: 5px;
+  }
+
+  h2 {
+    flex-basis: 100%;
+  }
+
+  .cta-button {
+    background-color: $maximum-red;
+    border: none;
+    padding: 0;
+    font-size: 40px;
+    margin: 15px;
+    line-height: 50px;
+    padding: 8px 17px 1px 17px;
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.not-found-image-container {
+  width: 90%;
+  flex-basis: 100%;
+
+  .not-found-image {
+    width: 100%;
+    max-width: 700px;
+    padding: 30px 0;
+  }
+}
