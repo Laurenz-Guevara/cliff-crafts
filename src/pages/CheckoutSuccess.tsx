@@ -1,6 +1,6 @@
+import { Faq } from '../components/Faq';
+import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
-
-import '../styles/pages/store.scss';
 
 export function CheckoutSuccess() {
   return (
@@ -8,8 +8,9 @@ export function CheckoutSuccess() {
       <NavBar />
       <div className="wrapper">
         <h1> Success</h1>
+        <Faq />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

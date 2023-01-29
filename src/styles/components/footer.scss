@@ -1,0 +1,83 @@
+@import '../global.scss';
+
+.footer-container {
+  background-color: $raisin-black;
+  padding-top: 25px;
+
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    h1,
+    p,
+    a {
+      color: $white;
+      width: 100%;
+      padding: 3px 0;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p,
+    a {
+      font-size: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      svg {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.secondary-footer {
+  background-color: $raisin-black-heavy;
+}
+
+.secondary-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 5px 0;
+
+  h1 {
+    color: $white;
+    font-weight: lighter;
+  }
+
+  .icons {
+    font-size: 30px;
+    padding-left: 15px;
+    color: $white;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .secondary-footer-container h1 {
+    display: none;
+  }
+
+  .secondary-footer-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .footer-container {
+    margin-top: 10px;
+  }
+  .footer-content-container {
+    padding: 25px 0;
+  }
+  .footer-content-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 60px;
+  }
+}

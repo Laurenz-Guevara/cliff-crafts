@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { client } from '../../client';
+import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
-import { Faq } from '../components/Faq';
 import { StoreProducts } from '../components/StoreProducts';
 
-import '../styles/pages/store.scss';
+import '../styles/components/faq.scss';
 
 export function Store() {
   const [data, setData] = useState<Product[]>();
@@ -30,9 +30,8 @@ export function Store() {
         <div className="product-preview">
           {data && <StoreProducts data={data} />}
         </div>
-        <Faq />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

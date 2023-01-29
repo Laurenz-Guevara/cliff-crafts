@@ -1,6 +1,5 @@
+import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
-
-import '../styles/pages/store.scss';
 
 export function CheckoutFailed() {
   return (
@@ -9,7 +8,7 @@ export function CheckoutFailed() {
       <div className="wrapper">
         <h1> Failed</h1>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

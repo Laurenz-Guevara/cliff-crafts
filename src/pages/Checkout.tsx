@@ -11,6 +11,7 @@ import '../styles/components/checkout.scss';
 
 import { useStripe } from '@stripe/react-stripe-js';
 import { fetchFromAPI } from '../lib/helpers';
+import { Footer } from '../components/Footer';
 
 export function Checkout() {
   const checkoutItems = useSelector((state: any) => state.cart);
@@ -164,6 +165,7 @@ export function Checkout() {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

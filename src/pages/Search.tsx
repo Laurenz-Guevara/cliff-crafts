@@ -3,6 +3,7 @@ import { client, urlFor } from '../../client';
 import { NavBar } from '../components/NavBar';
 import { useParams } from 'react-router-dom';
 import { StoreProducts } from '../components/StoreProducts';
+import { Footer } from '../components/Footer';
 
 export function Search() {
   const { slug }: any = useParams();
@@ -39,6 +40,7 @@ export function Search() {
           <h1>Please enter at least one keyword.</h1>
         )}
       </div>
+      <Footer />
     </>
   );
 }

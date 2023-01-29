@@ -3,6 +3,7 @@ import { NavBar } from '../components/NavBar';
 import CliffCrafts404 from '../assets/cliff-crafts-404.png';
 
 import '../styles/pages/pageNotFound.scss';
+import { Footer } from '../components/Footer';
 
 export function PageNotFound() {
   return (
@@ -21,6 +22,7 @@ export function PageNotFound() {
           </NavLink>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

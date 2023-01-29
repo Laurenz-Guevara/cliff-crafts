@@ -3,6 +3,7 @@ import { client, urlFor } from '../../client';
 import { NavBar } from '../components/NavBar';
 import { useParams } from 'react-router-dom';
 import { StoreProducts } from '../components/StoreProducts';
+import { Footer } from '../components/Footer';
 
 export function Collection() {
   const { slug }: any = useParams();
@@ -31,6 +32,7 @@ export function Collection() {
           {data && <StoreProducts data={data} />}
         </div>
       </div>
+      <Footer />
     </>
   );
 }
