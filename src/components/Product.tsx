@@ -128,7 +128,9 @@ export function Product() {
               </button>
             </div>
             <div className="product-description">
+              <h1>Product Description</h1>
               <p>{data.description}</p>
+              <h1>Features</h1>
               <p>{data.specification}</p>
             </div>
           </div>

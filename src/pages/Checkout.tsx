@@ -21,7 +21,6 @@ export function Checkout() {
   const stripe = useStripe();
   const handleClick = async (event: any) => {
     setActive(true);
-    console.log('API');
     const data = checkoutItems.cart.map((item: any) => {
       return {
         price_data: {
@@ -31,7 +30,7 @@ export function Checkout() {
             images: [urlFor(item.image[0]).url()],
             description: 'Size: ' + item.size.toString(),
           },
-          unit_amount: item.price * 100,
+          unit_amount: (item.price * 100).toFixed(0),
         },
         adjustable_quantity: {
           enabled: true,
@@ -61,7 +60,7 @@ export function Checkout() {
       <NavBar />
       <div className="wrapper">
         <div className="checkout-header">
-          <h1>Checkout</h1>
+          <h1>Shopping Cart</h1>
           <h1>{checkoutItems.cartTotalItems} Items</h1>
         </div>
 
@@ -138,12 +137,13 @@ export function Checkout() {
             ))}
         </div>
         <div className="checkout-footer">
-          <div className="cart-total">
-            <h1>Total</h1>
-            <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
-          </div>
           {checkoutItems.cartTotalItems !== 0 ? (
             <>
+              <div className="cart-total">
+                <h1>Total:</h1>
+                <h1>£{checkoutItems.cartTotalCost.toFixed(2)}</h1>
+              </div>
+
               <button
                 className="btn btn-primary"
                 onClick={handleClick}
@@ -154,8 +154,12 @@ export function Checkout() {
             </>
           ) : (
             <>
-              <h1>Your Cliffcrafts cart is empty.</h1>
-              <button onClick={() => navigate('/store/')}>Browse Store</button>
+              <div className="empty-cart">
+                <h1>Your Cliffcrafts cart is empty.</h1>
+                <button onClick={() => navigate('/store/')}>
+                  Browse Store
+                </button>
+              </div>
             </>
           )}
         </div>
