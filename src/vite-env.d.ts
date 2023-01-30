@@ -5,39 +5,45 @@ interface Slug {
   current: string;
 }
 
+interface Image {
+  _key: string;
+  _type: 'image';
+  asset: Array;
+}
+
 interface Cart {
   id: number;
   brand: string;
   productName: string;
   price: number;
-  image: any;
+  image: Array<Image>;
   slug: Slug;
   quantity: number;
   size: string;
 }
 
 interface CartState {
-  cart: Cart[];
+  cart: Cart[Object];
   cartTotalItems: number;
   cartTotalCost: number;
 }
 
-type Product = {
+interface Product {
   brand: string;
   productName: string;
   description: string;
   specification: string;
   price: number;
   size: Array;
-  image: any;
+  image: Array<Image>;
   slug: Slug;
   quantity: number;
-};
+}
 
-type Collection = {
+interface Collection {
   data: Array;
   navheader: string;
   navelement: Array;
   category: string;
   slug: Slug;
-};
+}

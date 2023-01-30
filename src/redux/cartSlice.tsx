@@ -16,7 +16,7 @@ export const cartSlice = createSlice({
         brand: string;
         productName: string;
         price: number;
-        image: any;
+        image: Array<Image>;
         slug: Slug;
         quantity: number;
         size: string;
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) =>
+        (item: { productName: string; size: string }) =>
           item.productName === action.payload.productName &&
           item.size === action.payload.size
       );
@@ -54,7 +54,7 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost -= action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) =>
+        (item: { productName: string; size: string }) =>
           item.productName === action.payload.productName &&
           item.size === action.payload.size
       );
@@ -63,7 +63,7 @@ export const cartSlice = createSlice({
         state.cart[itemIndex].quantity -= 1;
       } else if (state.cart[itemIndex].quantity === 1) {
         const nextCartItem = state.cart.filter(
-          (cart) => cart.id !== action.payload.id
+          (cart: { id: number }) => cart.id !== action.payload.id
         );
 
         state.cart = nextCartItem;
@@ -76,7 +76,7 @@ export const cartSlice = createSlice({
         Math.round((state.cartTotalCost += action.payload.price) * 1e2) / 1e2;
 
       const itemIndex = state.cart.findIndex(
-        (item) =>
+        (item: { productName: string; size: string }) =>
           item.productName === action.payload.productName &&
           item.size === action.payload.size
       );

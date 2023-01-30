@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import { client } from '../../client';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -15,13 +15,15 @@ export function NavBar() {
   const [data, setData] = useState<Collection[]>();
   let [selected, setSelected] = useState<string>();
   const navigate = useNavigate();
-  const checkoutItems = useSelector((state: any) => state.cart);
+  const checkoutItems = useSelector((state: CartState) => state.cart);
 
-  const handleUserInput = (e: any) => {
+  const handleUserInput = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setInputValue(e.target.value);
   };
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     navigate('/search/' + inputValue);
   }

@@ -14,15 +14,16 @@ import { fetchFromAPI } from '../lib/helpers';
 import { Footer } from '../components/Footer';
 
 export function Checkout() {
-  const checkoutItems = useSelector((state: any) => state.cart);
+  const checkoutItems = useSelector((state: CartState) => state.cart);
+  console.log(checkoutItems);
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const stripe = useStripe();
-  const handleClick = async (event: any) => {
+  const handleClick = async () => {
     setActive(true);
-    const data = checkoutItems.cart.map((item: any) => {
+    const data = checkoutItems.cart.map((item: Cart) => {
       return {
         price_data: {
           currency: 'gbp',
@@ -89,7 +90,7 @@ export function Checkout() {
             ''
           )}
           {checkoutItems.cart &&
-            checkoutItems.cart.map((item: any) => (
+            checkoutItems.cart.map((item: Cart) => (
               <div key={item.id + item.productName} className="checkout-item">
                 <NavLink to={'/products/' + item.slug.current}>
                   <LazyLoadImage

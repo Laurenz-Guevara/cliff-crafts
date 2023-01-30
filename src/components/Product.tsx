@@ -49,7 +49,7 @@ export function Product() {
                 src={urlFor(data.image && data.image[sliderData]).url()}
               ></img>
               <div className="thumbnail-images">
-                {data.image.map((item: any, i: number) => {
+                {data.image.map((item: Image, i: number) => {
                   return (
                     <LazyLoadImage
                       className={sliderData === i ? 'active-product-image' : ''}

@@ -6,7 +6,8 @@ import { StoreProducts } from '../components/StoreProducts';
 import { Footer } from '../components/Footer';
 
 export function Collection() {
-  const { slug }: any = useParams();
+  const { slug } = useParams();
+
   const [data, setData] = useState<Product[]>();
   useEffect(() => {
     client
