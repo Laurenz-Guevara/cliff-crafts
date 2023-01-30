@@ -58,6 +58,11 @@ export function Footer() {
               <h1>Contact Us</h1>
               <p>contact@cliffcrafts.com</p>
               <p>+44 7700 900461</p>
+              <p>
+                37 Mayflower Lane, <br />
+                Leicester, <br />
+                LE3 5AB
+              </p>
             </div>
           </div>
         </div>

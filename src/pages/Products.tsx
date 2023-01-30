@@ -9,7 +9,6 @@ export function Products() {
       <NavBar />
       <div className="wrapper">
         <Product />
-        <Faq />
       </div>
       <Footer />
     </>

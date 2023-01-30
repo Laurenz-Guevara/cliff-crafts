@@ -19,7 +19,6 @@ export function Product() {
   const dispatch = useDispatch();
   const [sliderData, setSliderData] = useState(0);
   const handleClick = (index: number) => {
-    console.log(index);
     setSliderData(index);
   };
 

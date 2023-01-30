@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 15px;
+
     h1,
     p,
     a {
@@ -32,6 +33,10 @@
         padding-right: 10px;
       }
     }
+  }
+
+  .footer-content:first-child {
+    display: block;
   }
 }
 
@@ -70,7 +75,7 @@
 
 @media (min-width: $tablet-breakpoint) {
   .footer-container {
-    margin-top: 10px;
+    margin-top: 30px;
   }
   .footer-content-container {
     padding: 25px 0;

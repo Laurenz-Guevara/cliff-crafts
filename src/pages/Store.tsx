@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { client } from '../../client';
+import { Banner } from '../components/Banner';
 import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
 import { StoreProducts } from '../components/StoreProducts';
@@ -12,7 +13,7 @@ export function Store() {
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "product"]{
+        `*[_type == "product"][0..3]{
           brand,
           productName,
           image,
@@ -27,6 +28,7 @@ export function Store() {
     <>
       <NavBar />
       <div className="wrapper">
+        <Banner text={'Featured'} />
         <div className="product-preview">
           {data && <StoreProducts data={data} />}
         </div>

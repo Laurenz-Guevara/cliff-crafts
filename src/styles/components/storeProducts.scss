@@ -5,8 +5,7 @@
   .product-preview-container {
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
+    margin: 20px 0;
     align-items: baseline;
     column-gap: 50px;
   }
@@ -34,6 +33,14 @@
     }
     img {
       width: 100%;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .product-preview {
+    .product-preview-container {
+      grid-template-columns: auto auto auto auto;
     }
   }
 }

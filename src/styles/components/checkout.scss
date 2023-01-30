@@ -134,6 +134,10 @@
     text-decoration: none;
     color: $white;
   }
+
+  .empty-cart {
+    margin: 30px auto;
+  }
 }
 
 @media (min-width: $mobile-breakpoint) {
@@ -168,10 +172,10 @@
       width: auto;
       margin-left: auto;
     }
-  }
 
-  .empty-cart {
-    margin: 30px auto;
+    .empty-cart {
+      margin: 130px auto;
+    }
   }
 }
 

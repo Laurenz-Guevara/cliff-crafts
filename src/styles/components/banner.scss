@@ -1,0 +1,29 @@
+@import '../global.scss';
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  background-image: url('../../assets/banner.jpg');
+  height: 30vw;
+  max-height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -50px;
+
+  .features-card {
+    background-color: $darken;
+    width: 100%;
+    .features-card-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      h1 {
+        font-weight: bold;
+        color: $white;
+        font-size: 30px;
+      }
+    }
+  }
+}
