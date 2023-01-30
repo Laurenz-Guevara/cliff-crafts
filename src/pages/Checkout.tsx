@@ -29,7 +29,7 @@ export function Checkout() {
           product_data: {
             name: item.productName,
             images: [urlFor(item.image[0]).url()],
-            description: 'Size: ' + item.size.toString(),
+            description: 'Size: ' + item.size,
           },
           unit_amount: (item.price * 100).toFixed(0),
         },

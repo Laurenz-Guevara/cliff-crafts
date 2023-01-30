@@ -86,6 +86,14 @@ export default {
       description: 'Details about the product such as size...',
       type: 'text',
     },
+
+    {
+      name: 'size',
+      title: 'Product Sizes',
+      description: 'The sizes avaliable.',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
     {
       name: 'price',
       title: 'Price',

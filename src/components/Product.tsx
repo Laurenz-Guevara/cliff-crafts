@@ -11,9 +11,8 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import '../styles/components/product.scss';
 
 export function Product() {
-  const sizes: any = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52];
   const [data, setData] = useState<Product>();
-  const [size, selectedSize] = useState<number>(sizes[0]);
+  const [selected, selectedSize] = useState<string>();
   const { slug } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,8 +30,8 @@ export function Product() {
           image,
           description,
           specification,
+          size,
           price,
-          stripePrice,
           slug,
     }`
       )
@@ -78,13 +77,18 @@ export function Product() {
               <div className="product-size">
                 <h2>Select the size (EU)</h2>
                 <ul className="product-size-item">
-                  {sizes.map((number: number) => {
+                  {data.size.map((number: string) => {
+                    if (selected === undefined) {
+                      selectedSize(data.size[0]);
+                    }
                     return (
                       <li key={number}>
                         <button
                           onClick={() => selectedSize(number)}
                           className={
-                            size === number ? 'active-product-size-item' : ''
+                            selected === number
+                              ? 'active-product-size-item'
+                              : ''
                           }
                         >
                           <span>{number}</span>
@@ -104,11 +108,10 @@ export function Product() {
                         brand: data.brand,
                         image: data.image,
                         price: data.price,
-                        stripePrice: data.stripePrice,
                         productName: data.productName,
                         slug: data.slug,
                         quantity: 1,
-                        size: size,
+                        size: selected!,
                       })
                     );
                   }}
@@ -124,11 +127,10 @@ export function Product() {
                         brand: data.brand,
                         image: data.image,
                         price: data.price,
-                        stripePrice: data.stripePrice,
                         productName: data.productName,
                         slug: data.slug,
                         quantity: 1,
-                        size: size,
+                        size: selected!,
                       })
                     ),
                       navigate('/checkout');
