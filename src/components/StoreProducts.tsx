@@ -18,7 +18,6 @@ export function StoreProducts(props: { data: Product[] }) {
                 effect="opacity"
                 onMouseEnter={() => {
                   setSelected(item.productName);
-                  console.log(selected);
                 }}
                 src={urlFor(
                   item.image &&

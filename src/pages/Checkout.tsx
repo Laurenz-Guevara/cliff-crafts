@@ -15,7 +15,6 @@ import { Footer } from '../components/Footer';
 
 export function Checkout() {
   const checkoutItems = useSelector((state: CartState) => state.cart);
-  console.log(checkoutItems);
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
