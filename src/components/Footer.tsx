@@ -7,6 +7,7 @@ import {
   faTiktok,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -23,11 +24,25 @@ export function Footer() {
             </div>
             <div className="footer-content">
               <h1>Products</h1>
-              <p>Climbing Shoes</p>
-              <p>Quickdraws & Carabiners</p>
-              <p>Essentials</p>
-              <p>Harnesses</p>
-              <p>Camping Gear</p>
+
+              <NavLink to={'/collection/climbing-shoes'} className="list-link">
+                Climbing Shoes
+              </NavLink>
+              <NavLink
+                to={'/collection/carabiners-and-quickdraws'}
+                className="list-link"
+              >
+                Quickdraws & Carabiners
+              </NavLink>
+              <NavLink to={'/collection/essentials'} className="list-link">
+                Essentials
+              </NavLink>
+              <NavLink to={'/collection/harnesses'} className="list-link">
+                Harnesses
+              </NavLink>
+              <NavLink to={'/collection/camping'} className="list-link">
+                Camping Gear
+              </NavLink>
             </div>
             <div className="footer-content">
               <h1>Social Media</h1>

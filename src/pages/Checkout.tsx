@@ -22,6 +22,8 @@ export function Checkout() {
 
   const stripe = useStripe();
   const handleClick = async () => {
+    window.scrollTo(0, 0);
+    document.querySelector('body')!.classList.toggle('lock-scroll');
     setActive(true);
     const data = checkoutItems.cart.map((item: Cart) => {
       return {

@@ -7,7 +7,6 @@ import { Footer } from '../components/Footer';
 
 export function Collection() {
   const { slug } = useParams();
-
   const [data, setData] = useState<Product[]>();
   useEffect(() => {
     client
@@ -28,7 +27,9 @@ export function Collection() {
     <>
       <NavBar />
       <div className="wrapper">
-        <h1>Our Collection</h1>
+        <h1>
+          {slug!.charAt(0).toUpperCase()! + slug!.split('-').join(' ').slice(1)}
+        </h1>
         <div className="product-preview">
           {data && <StoreProducts data={data} />}
         </div>

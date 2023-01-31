@@ -40,7 +40,7 @@
 @media (min-width: $tablet-breakpoint) {
   .product-preview {
     .product-preview-container {
-      grid-template-columns: auto auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 }

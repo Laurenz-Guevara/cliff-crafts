@@ -110,6 +110,7 @@
       padding: 7px 0 2px;
       text-decoration: none;
       color: $white;
+      cursor: pointer;
     }
 
     .cart-btn:first-child {
@@ -117,6 +118,11 @@
       border: 1px solid $darken;
       color: $raisin-black;
       margin-bottom: 15px;
+    }
+
+    .cart-btn:active {
+      background-color: $raisin-black;
+      color: $white;
     }
   }
 }

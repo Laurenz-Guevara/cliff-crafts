@@ -22,7 +22,19 @@
       h1 {
         font-weight: bold;
         color: $white;
-        font-size: 30px;
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .features-container {
+    .features-card {
+      .features-card-text {
+        h1 {
+          font-size: 4vw;
+        }
       }
     }
   }

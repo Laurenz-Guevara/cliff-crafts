@@ -45,9 +45,10 @@ export function Product() {
         <>
           <div className="product-container">
             <div className="product-images">
-              <img
+              <LazyLoadImage
+                effect="opacity"
                 src={urlFor(data.image && data.image[sliderData]).url()}
-              ></img>
+              ></LazyLoadImage>
               <div className="thumbnail-images">
                 {data.image.map((item: Image, i: number) => {
                   return (

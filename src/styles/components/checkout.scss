@@ -1,5 +1,9 @@
 @import '../global.scss';
 
+.lock-scroll {
+  overflow: hidden;
+}
+
 .checkout-header {
   display: flex;
   justify-content: space-between;
@@ -67,7 +71,6 @@
         line-height: 1;
         h2 {
           font-size: 22px;
-          color: $raisin-black-medium;
         }
 
         h3 {
@@ -171,6 +174,12 @@
     .btn-primary {
       width: auto;
       margin-left: auto;
+      cursor: pointer;
+    }
+
+    .btn-primary:active {
+      background-color: $raisin-black;
+      color: $white;
     }
 
     .empty-cart {
@@ -197,7 +206,7 @@
 
         .checkout-item-details {
           h2 {
-            font-size: 30px;
+            font-size: 25px;
           }
           h3 {
             font-size: 25px;

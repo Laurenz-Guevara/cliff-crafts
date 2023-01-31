@@ -3,8 +3,11 @@ import { urlFor } from '../../client';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import '../styles/components/storeProducts.scss';
+import { useState } from 'react';
 
 export function StoreProducts(props: { data: Product[] }) {
+  const [selected, setSelected] = useState<string>();
+
   return (
     <div className="product-preview-container">
       {props.data &&
@@ -13,7 +16,19 @@ export function StoreProducts(props: { data: Product[] }) {
             <NavLink to={'/products/' + item.slug.current}>
               <LazyLoadImage
                 effect="opacity"
-                src={urlFor(item.image && item.image[0]).url()}
+                onMouseEnter={() => {
+                  setSelected(item.productName);
+                  console.log(selected);
+                }}
+                src={urlFor(
+                  item.image &&
+                    item.image[
+                      selected === item.productName && item.image.length > 1
+                        ? 1
+                        : 0
+                    ]
+                ).url()}
+                onMouseLeave={() => setSelected('')}
               ></LazyLoadImage>
               <div className="product-preview-text">
                 <div className="product-preview-text-right">
