@@ -139,12 +139,10 @@ export function NavBar() {
               onChange={handleUserInput}
             ></input>
           </form>
-          <NavLink
-            to={'/search/' + inputValue}
-            className="search-btn-nav"
-            aria-label="Search"
-          >
-            <i className="fas fa-search"></i>
+          <NavLink to={'/search/' + inputValue} className="search-btn-nav">
+            <button className="search-btn" aria-label="Search">
+              <i className="fas fa-search"></i>
+            </button>
           </NavLink>
         </div>
       </nav>

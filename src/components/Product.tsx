@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -17,12 +17,9 @@ export function Product() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [sliderData, setSliderData] = useState(0);
-  const [descHeight, setDescHeight] = useState(false);
-  const [specHeight, setSpecHeight] = useState(false);
-  const description = useRef<HTMLParagraphElement>(document.createElement('p'));
-  const specification = useRef<HTMLParagraphElement>(
-    document.createElement('p')
-  );
+  const handleClick = (index: number) => {
+    setSliderData(index);
+  };
 
   useEffect(() => {
     client
@@ -60,7 +57,7 @@ export function Product() {
                       key={item._key}
                       effect="opacity"
                       src={urlFor(item).url()}
-                      onClick={() => setSliderData(i)}
+                      onClick={() => handleClick(i)}
                     ></LazyLoadImage>
                   );
                 })}
@@ -74,43 +71,9 @@ export function Product() {
               </div>
               <div className="product-description">
                 <h1>Product Description</h1>
-                <p
-                  ref={description}
-                  className={descHeight === false ? 'hide-p' : ''}
-                >
-                  {data.description}
-                </p>
-                <button
-                  className={
-                    description.current.clientHeight <= 140
-                      ? 'hide-btn'
-                      : 'truncated-btn'
-                  }
-                  onClick={() => {
-                    setDescHeight(!descHeight);
-                  }}
-                >
-                  {descHeight ? <p>Show Less</p> : <p>Show More</p>}
-                </button>
+                <p>{data.description}</p>
                 <h1>Features</h1>
-                <p
-                  ref={specification}
-                  className={specHeight === false ? 'hide-p' : ''}
-                >
-                  {data.specification}
-                </p>
-                <button
-                  className={
-                    specification.current.clientHeight <= 140
-                      ? 'hide-btn'
-                      : 'truncated-btn'
-                  }
-                  onClick={() => {
-                    setSpecHeight(!specHeight);
-                  }}
-                >
-                  {specHeight ? <p>Show Less</p> : <p>Show More</p>}
-                </button>
+                <p>{data.specification}</p>
               </div>
               <div className="product-size">
                 <h2>Select the size (EU)</h2>
