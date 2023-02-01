@@ -1,0 +1,30 @@
+@import '../global.scss';
+
+.modal {
+  display: block;
+  text-align: center;
+  margin: 75px 0;
+  i {
+    font-size: 90px;
+  }
+
+  h1 {
+    margin: 30px 0;
+  }
+
+  a {
+    background-color: $maximum-red;
+    border: none;
+    width: 60%;
+    font-size: 30px;
+    padding: 5px 20px 2px;
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+  }
+
+  .return-btn:active {
+    background-color: $raisin-black;
+    color: $white;
+  }
+}

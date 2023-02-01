@@ -19,7 +19,10 @@ export function Faq() {
                   open !== 1 ? setOpen(1) : setOpen(0);
                 }}
               >
-                <i className="fa fa-plus" aria-hidden="false"></i>
+                <i
+                  className={open === 1 ? 'fa fa-minus' : 'fa fa-plus'}
+                  aria-hidden="false"
+                ></i>
               </button>
             </div>
             <div className="accordion-answer">
@@ -42,7 +45,10 @@ export function Faq() {
                   open !== 2 ? setOpen(2) : setOpen(0);
                 }}
               >
-                <i className="fa fa-plus" aria-hidden="false"></i>
+                <i
+                  className={open === 2 ? 'fa fa-minus' : 'fa fa-plus'}
+                  aria-hidden="false"
+                ></i>
               </button>
             </div>
             <div className="accordion-answer">
@@ -50,7 +56,7 @@ export function Faq() {
                 <p>
                   If you need to get in contact with Cliffcrafts please email us
                   at contact@cliffcrafts.com or alternatively call our number at
-                  0123 456 7891
+                  +44 7700 900461
                 </p>
               )}
             </div>
@@ -64,7 +70,10 @@ export function Faq() {
                   open !== 3 ? setOpen(3) : setOpen(0);
                 }}
               >
-                <i className="fa fa-plus" aria-hidden="false"></i>
+                <i
+                  className={open === 3 ? 'fa fa-minus' : 'fa fa-plus'}
+                  aria-hidden="false"
+                ></i>
               </button>
             </div>
             <div className="accordion-answer">
