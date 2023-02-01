@@ -58,15 +58,19 @@
       -webkit-appearance: none;
     }
 
-    button {
-      text-align: center;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 60px;
-      height: 45px;
-      background-color: $white;
       border: 1px solid $platinum;
       border-left: none;
       cursor: pointer;
       font-size: 20px;
+    }
+
+    a:hover {
+      background-color: $bright-grey;
     }
   }
 
@@ -95,12 +99,6 @@
 
   .search-btn-nav {
     text-decoration: none;
-  }
-
-  .search-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .mega-menu {

@@ -50,6 +50,32 @@
       display: none;
       border-bottom: 1px solid $border;
     }
+
+    .truncated-btn {
+      background-color: $white;
+      border: 1px solid $border;
+      margin: 5px 0 10px;
+      padding: 6px 15px 2px 15px;
+      line-height: 25px;
+      text-decoration: none;
+      cursor: pointer;
+      color: $white;
+
+      p {
+        padding: 0 !important;
+      }
+    }
+
+    .truncated-btn:hover {
+      background-color: $raisin-black;
+      p {
+        color: $white;
+      }
+    }
+
+    .hide-btn {
+      display: none;
+    }
   }
 
   .product-size {
@@ -197,7 +223,12 @@
         }
         p {
           font-size: 20px;
-          padding-bottom: 15px;
+        }
+
+        .hide-p {
+          max-height: 145px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 
