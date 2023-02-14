@@ -33,7 +33,7 @@ Needs CORS, EXPRESS & STRIPE
 
 Also option to use Docker and host API off cloud functions on a cloud service like "gcloud"
 
-### ENV Files
+### ENV Files - These are not real keys
 
 Root of Directory {
 PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51MU...UQuG
