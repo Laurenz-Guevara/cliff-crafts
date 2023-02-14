@@ -1,6 +1,7 @@
 @import '../global.scss';
 
 .product-preview {
+  min-height: calc(100vh - 602px);
   text-align: left;
   .product-preview-container {
     display: grid;
@@ -36,6 +37,10 @@
       width: 100%;
     }
   }
+}
+
+.product-unavaliable {
+  min-height: calc(100vh - 582px);
 }
 
 @media (min-width: $tablet-breakpoint) {

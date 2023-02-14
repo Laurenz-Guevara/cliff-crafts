@@ -109,8 +109,8 @@ export function NavBar() {
               {openDeals && <Meganav data={data!} selected={selected!} />}
             </li>
             <li className="shopping-basket-container">
-              <NavLink to={'/checkout'}>
-                <i className="fas fa-shopping-basket"></i>{' '}
+              <NavLink to={'/checkout'} aria-label="Open shopping basket">
+                <i className="fas fa-shopping-basket"></i>
                 <span className="cart-item-qty">
                   {checkoutItems.cartTotalItems !== 0
                     ? checkoutItems.cartTotalItems
@@ -126,7 +126,7 @@ export function NavBar() {
             setOpenBurger(!openBurger);
           }}
         >
-          <i className="fas fa-bars burger"></i>{' '}
+          <i className="fas fa-bars burger"></i>
           {openBurger && <Meganav data={data!} selected={''} />}
         </div>
         <div className="nav-search">

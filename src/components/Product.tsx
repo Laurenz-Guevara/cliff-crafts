@@ -48,6 +48,7 @@ export function Product() {
               <LazyLoadImage
                 effect="opacity"
                 src={urlFor(data.image && data.image[sliderData]).url()}
+                alt={data.productName + ' product'}
               ></LazyLoadImage>
               <div className="thumbnail-images">
                 {data.image.map((item: Image, i: number) => {
@@ -58,6 +59,7 @@ export function Product() {
                       effect="opacity"
                       src={urlFor(item).url()}
                       onClick={() => handleClick(i)}
+                      alt={'other ' + data.productName + ' images'}
                     ></LazyLoadImage>
                   );
                 })}

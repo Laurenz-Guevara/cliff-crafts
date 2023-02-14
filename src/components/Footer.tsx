@@ -90,6 +90,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/laurenzguevara/"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="Redirect to Linkedin"
             >
               <FontAwesomeIcon icon={faLinkedin} className="icons" />
             </a>
@@ -97,6 +98,7 @@ export function Footer() {
               href="https://github.com/Laurenz-Guevara?tab=repositories"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="Redirect to Linkedin"
             >
               <FontAwesomeIcon icon={faGithub} className="icons" />
             </a>

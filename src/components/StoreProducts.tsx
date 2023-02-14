@@ -27,6 +27,7 @@ export function StoreProducts(props: { data: Product[] }) {
                         : 0
                     ]
                 ).url()}
+                alt={'Climbing Shoes'}
                 onMouseLeave={() => setSelected('')}
               ></LazyLoadImage>
               <div className="product-preview-text">

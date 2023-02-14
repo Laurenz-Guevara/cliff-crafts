@@ -93,9 +93,15 @@ export function Checkout() {
           {checkoutItems.cart &&
             checkoutItems.cart.map((item: Cart) => (
               <div key={item.id + item.productName} className="checkout-item">
-                <NavLink to={'/products/' + item.slug.current}>
+                <NavLink
+                  to={'/products/' + item.slug.current}
+                  aria-label={
+                    'Redirect to ' + item.productName + ' product page.'
+                  }
+                >
                   <LazyLoadImage
                     src={urlFor(item.image && item.image[0]).url()}
+                    alt={'Image preview of ' + item.productName}
                   ></LazyLoadImage>
                 </NavLink>
 
@@ -110,6 +116,7 @@ export function Checkout() {
                   <div className="adjust-item-qty">
                     <button
                       className="adjust-item-element"
+                      aria-label="Reduce product quantity"
                       onClick={() =>
                         dispatch(
                           decrementItem({
@@ -126,6 +133,7 @@ export function Checkout() {
                     <p className="adjust-item-element">{item.quantity}</p>
                     <button
                       className="adjust-item-element"
+                      aria-label="Increase product quantity"
                       onClick={() =>
                         dispatch(
                           incrementItem({

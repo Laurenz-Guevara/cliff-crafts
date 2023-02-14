@@ -122,10 +122,11 @@
   background-color: $white;
   padding-bottom: 24px;
   bottom: 0;
+
   .cart-total {
     display: flex;
     justify-content: space-between;
-    padding: 6px 0;
+    padding: 21px 0 10px 0;
   }
 
   button {
@@ -183,7 +184,7 @@
     }
 
     .empty-cart {
-      margin: 130px auto;
+      margin: 132px auto;
     }
   }
 }
