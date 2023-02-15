@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/components/splashpage.scss';
 
@@ -7,7 +8,10 @@ export function Splashpage() {
     doc.style.setProperty('--app-height', `${window.innerHeight}px`);
   };
   window.addEventListener('resize', appHeight);
-  appHeight();
+
+  useEffect(() => {
+    appHeight();
+  }, []);
 
   return (
     <>
