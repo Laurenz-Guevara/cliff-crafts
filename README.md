@@ -38,7 +38,7 @@
 * [Vite](https://vitejs.dev/)
 * [Sass](https://sass-lang.com/)
 * [Redux](https://redux.js.org/)
-* [Firebase](https://firebase.google.com/)
+* [Firebase / Cloud Functions](https://firebase.google.com/)
 * [Stripe](https://stripe.com/docs)
 * [Sanity CMS](https://www.sanity.io/)
 
@@ -77,6 +77,20 @@ v18.13.0
     npm run dev
     ```
 
+### Deployment
+
+1. Clone the repo
+
+    ```bash
+    npm run build
+    ```
+
+2. Install Packages
+
+    ```bash
+    firebase deploy
+    ```
+
 <!-- CONTACT -->
 ## Contact
 
@@ -87,51 +101,20 @@ LinkedIn - https://www.linkedin.com/in/laurenzguevara/
 
 [product-screenshot]:https://user-images.githubusercontent.com/58118627/221344074-731bd10c-55d6-4bcd-b2b3-4e4c2a6e044d.png
 
-### Cliff Crafts
-
-Tech Stack: React, Typescript, SaSS, Sanity.io (CMS), GROQ, GitHub, Stripe, Express, Firebase Cloud Functions, Firebase Deployment,
-
-### Installation
-
-Node v18.13.0
-npm install
-
-### Infomation
-
-Airbnb eslint configuration
-Vite, SaSS, Firebase, Sanity, Typescript
-
-### Libaries
-
-npm i react-router-dom
-npm install --save-dev sass
-
-### Run project
-
-npm run dev
-
-### Deploy Project
-
-npm run build
-firebase deploy
-
-### Firebase Cloud Functions & Stripe
-
-Express API that handles Stripe Payments
-Needs CORS, EXPRESS & STRIPE
-
-Also option to use Docker and host API off cloud functions on a cloud service like "gcloud"
-
 ### ENV Files - These are not real keys
 
-Root of Directory {
+## Root of Directory
 PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51MU...UQuG
-STRIPE_SECRET_KEY=sk_test_25AB...FEa
-STRIPE_WEBHOOK_SECRET=whsec_123456
-Set this environment variable to support webhooks — https://stripe.com/docs/webhooks/signatures
-}
 
-Root of Functions Folder {
+STRIPE_SECRET_KEY=sk_test_25AB...FEa
+
+STRIPE_WEBHOOK_SECRET=whsec_123456
+
+Set this environment variable to support webhooks — https://stripe.com/docs/webhooks/signatures
+
+Root of Functions Folder 
+
 STRIPE_SECRET=sk_test_25AB...FEa
+
 WEBAPP_URL="https://www.cliffcrafts.com"
-}
+
