@@ -3,8 +3,10 @@
 .product-preview {
   min-height: calc(100vh - 602px);
   text-align: left;
+
   .product-preview-container {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     margin: 20px 0;
     column-gap: 50px;
     row-gap: 2px;
