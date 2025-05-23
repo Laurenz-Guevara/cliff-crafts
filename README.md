@@ -4,11 +4,6 @@
 
   <p align="center">
     Full Stack E-Commerce website built with React and Typescript. Firebase cloud functions using Express.js to provide API Requests with stripe.
-    <br />
-    <br />
-    <a href="https://cliffcrafts.com/">View Live Site</a>
-    ·
-    <a href="https://github.com/Laurenz-Guevara/cliff-crafts/issues">Report Bug</a>
   </p>
 </div>
 
